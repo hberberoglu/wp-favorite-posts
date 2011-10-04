@@ -1,0 +1,89 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Hseyin Berberolu
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-favorite-posts\n"
+"POT-Creation-Date: 2009-02-23 14:19+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: wp-favorite-posts.php:128
+msgid "Favorite Posts"
+msgstr ""
+
+#: wpfp-admin.php:4
+msgid "Cheatin&#8217; uh?"
+msgstr ""
+
+#: wpfp-admin.php:20
+msgid "Options saved."
+msgstr ""
+
+#: wpfp-admin.php:24
+msgid "Favorite Posts Configuration"
+msgstr ""
+
+#: wpfp-admin.php:28
+msgid "Text for add link"
+msgstr ""
+
+#: wpfp-admin.php:31
+msgid "Text for added"
+msgstr ""
+
+#: wpfp-admin.php:34
+msgid "Text for remove link"
+msgstr ""
+
+#: wpfp-admin.php:37
+msgid "Text for removed"
+msgstr ""
+
+#: wpfp-admin.php:40
+msgid "Text for clear link"
+msgstr ""
+
+#: wpfp-admin.php:43
+msgid "Text for cleared"
+msgstr ""
+
+#: wpfp-admin.php:46
+msgid "Text for favorites are"
+msgstr ""
+
+#: wpfp-admin.php:49
+msgid "Text for favorites saved to cookies"
+msgstr ""
+
+#. Plugin Name of an extension
+msgid "WP Favorite Posts"
+msgstr ""
+
+#. Plugin URI of an extension
+msgid "http://birazkisisel.com/projects/wp-favorite-posts/"
+msgstr ""
+
+#. Description of an extension
+msgid ""
+"Allows users to add favorite posts. This plugin use cookies for saving data "
+"so unregistered users can favorite a post. Put <code>&lt;?php wpfp_link(); "
+"?&gt;</code> where ever you want on a single post. Then create a page which "
+"includes that text : <code>{{wp-favorite-posts}}</code> That's it!"
+msgstr ""
+
+#. Author of an extension
+msgid "Hüseyin Berberoğlu"
+msgstr ""
+
+#. Author URI of an extension
+msgid "http://birazkisisel.com"
+msgstr ""

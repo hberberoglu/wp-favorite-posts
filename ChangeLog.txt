@@ -1,0 +1,202 @@
+------------------
+WP Favorite Posts - ChangeLog
+http://wordpress.org/extend/plugins/wp-favorite-posts/
+http://nxsn.com
+------------------
+Version 1.5.2
+-----------
+2010-12-27 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* FIX: Change the user's favorites wigdet title bug fixed.
+
+Version 1.5.1
+-----------
+2010-06-04 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Little JS fix. Thanks to Heather Wallace.
+
+Version 1.4.3.2
+-----------
+2010-04-23 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Show only published posts on most favorited posts widget
+
+Version 1.4.3
+-----------
+2010-04-13 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Admin can write html codes to label settings (on admin page)
+	* Added "wpfp_link_html" and "wpfp_remove_favorite_link" filters.
+
+Version 1.4.3
+-----------
+2010-04-09 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Fix: same remove link for all posts on index
+	* better wpfp.js: remove li which on favorites page.
+
+Version 1.4.1
+-----------
+2010-04-05 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* code refactor, add do_action for add and remove to list (#225575)
+	* update admin page
+
+2010-03-29 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Fix plugin path, fixes image loading problems (#222902)
+
+Version 1.4
+-----------
+2010-03-20 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Override page template if wpfp-page-template.php exists on template
+	directory.
+	* Add [wp-favorite-posts] shortcode. Use shortcode instead of
+	{{wp-favorite-posts}}
+
+Version 1.3.5
+-----------
+2010-03-17 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Fix meta key issue.
+
+Version 1.3.4
+-----------
+2010-03-16 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Fix wpfp-span issue
+
+Version 1.3.3
+-----------
+2010-03-16 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Fixed regression: if javascript doesn't work change to non-ajax mode.
+	This fixes 'only text' pages. 
+
+2010-02-15 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* If user logged in don't show cookie warning at "your favorites" page.
+	* Added "show remove link" and "show add link" options. 
+	You can show remove link when someone add a favorite.
+	Similary You can show add link when someone remove a favorite.
+
+Version 1.3.1
+-----------
+2009-06-10 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Added Before Link Image feature.
+	* Refactor code and imporve DRY
+	* Fixed bug: Most favorite list's string sorting problem 2 > 11
+	* Fixed bug: Clear link not updating post's favorited count
+
+Version 1.3
+-----------
+2009-05-31 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Fixed bug: Plugin was working wrong in pages with links includes # character.
+	* Added template tag for Most Favorite Posts. There was already a widget for this.
+
+Version 1.2.1
+-----------
+2009-05-14 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Added "Most Favorited Posts" widget.
+
+2009-04-30 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Added "buy me a beer" section to admin page.
+	* Added favorite statistic feature.
+
+Version 1.2
+-----------
+2009-04-26 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Added database integration. 
+		- If a user logged in then favorites data will save to database instead of cookies.
+		- If user not logged in data will save to cookies.
+	* Added "only registered users can favorite" option.
+
+Version 1.1.7
+-----------
+2009-03-10 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Fixed duplicate loading image problem
+	* Added [wpfp-link] feature;
+		You can show favorite link only in preferred posts with writing
+		[wpfp-link] to the post content.
+
+Version 1.1.6
+-----------
+2009-03-05 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Fixed ajax problem.
+
+Version 1.1.5
+-----------
+2009-03-02 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Added rel="nofollow" to links.
+	* Favorite posts title language problem solved.
+	* ajax.js file renamed to wpfp.js
+
+2009-03-02 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Use XHTML valid links.
+	* Use class instead of id for html elements.
+	* Use more unique function names. All functions starts with wpfp.
+
+Version 1.1.4
+-----------
+Version 1.2.1
+-----------
+2009-05-14 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Added "Most Favorited Posts" widget.
+
+2009-04-30 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Added "buy me a beer" section to admin page.
+	* Added favorite statistic feature.
+
+Version 1.2
+-----------
+2009-04-26 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Added database integration. 
+		- If a user logged in then favorites data will save to database instead of cookies.
+		- If user not logged in data will save to cookies.
+	* Added "only registered users can favorite" option.
+
+Version 1.1.7
+-----------
+2009-03-10 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Fixed duplicate loading image problem
+	* Added [wpfp-link] feature;
+		You can show favorite link only in preferred posts with writing
+		[wpfp-link] to the post content.
+
+Version 1.1.6
+-----------
+2009-03-05 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Fixed ajax problem.
+
+Version 1.1.5
+-----------
+2009-03-02 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Added rel="nofollow" to links.
+	* Favorite posts title language problem solved.
+	* ajax.js file renamed to wpfp.js
+
+2009-03-02 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Use XHTML valid links.
+	* Use class instead of id for html elements.
+	* Use more unique function names. All functions starts with wpfp.
+
+Version 1.1.4
+-----------
+2009-02-24 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Use permalinks favorite links.
+	* Users can remove a single favorite post from favorite posts page.
+
+Version 1.1.3
+-----------
+2009-02-24 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Clear Favorites now works.
+	* Favorite list is xhtml valid now.
+
+Version 1.1.2
+-----------
+2009-02-24 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Save button fixed which in options page.
+
+Version 1.1.1
+-----------
+2009-02-24 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Cleared wrong code.
+
+Version 1.1
+-----------
+2009-02-24 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* Fixed permalink problem. Now works with all types of permalink.
+
+Version 1.0
+-----------
+2009-02-23 Hüseyin Berberoğlu <hberberoglu@gmail.com>
+	* First Release of WP-Favorite Posts
