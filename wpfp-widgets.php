@@ -44,7 +44,7 @@ function wpfp_widget_init() {
     }
     register_sidebar_widget('Most Favorited Posts', 'wpfp_widget_view');
     register_widget_control('Most Favorited Posts', 'wpfp_widget_control' );
-    
+
     //*** users favorites widget ***//
     function wpfp_users_favorites_widget_view($args) {
         extract($args);
@@ -92,6 +92,6 @@ function wpfp_widget_init() {
     }
     register_sidebar_widget('User\'s Favorites', 'wpfp_users_favorites_widget_view');
     register_widget_control('User\'s Favorites', 'wpfp_users_favorites_widget_control' );
-    
+
 }
 add_action('widgets_init', 'wpfp_widget_init');
