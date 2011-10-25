@@ -61,11 +61,11 @@ Version 1.3.3
 -----------
 2010-03-16 Hüseyin Berberoğlu <hberberoglu@gmail.com>
 	* Fixed regression: if javascript doesn't work change to non-ajax mode.
-	This fixes 'only text' pages. 
+	This fixes 'only text' pages.
 
 2010-02-15 Hüseyin Berberoğlu <hberberoglu@gmail.com>
 	* If user logged in don't show cookie warning at "your favorites" page.
-	* Added "show remove link" and "show add link" options. 
+	* Added "show remove link" and "show add link" options.
 	You can show remove link when someone add a favorite.
 	Similary You can show add link when someone remove a favorite.
 
@@ -95,7 +95,7 @@ Version 1.2.1
 Version 1.2
 -----------
 2009-04-26 Hüseyin Berberoğlu <hberberoglu@gmail.com>
-	* Added database integration. 
+	* Added database integration.
 		- If a user logged in then favorites data will save to database instead of cookies.
 		- If user not logged in data will save to cookies.
 	* Added "only registered users can favorite" option.
@@ -139,7 +139,7 @@ Version 1.2.1
 Version 1.2
 -----------
 2009-04-26 Hüseyin Berberoğlu <hberberoglu@gmail.com>
-	* Added database integration. 
+	* Added database integration.
 		- If a user logged in then favorites data will save to database instead of cookies.
 		- If user not logged in data will save to cookies.
 	* Added "only registered users can favorite" option.
