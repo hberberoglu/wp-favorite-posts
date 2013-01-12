@@ -59,6 +59,7 @@ function wpfp_widget_init() {
              . $after_title;
         $favorite_post_ids = wpfp_get_users_favorites();
 
+		$limit = $options['uf_widget_limit'];
         if (@file_exists(TEMPLATEPATH.'/wpfp-your-favs-widget.php')):
             include(TEMPLATEPATH.'/wpfp-your-favs-widget.php');
         else:
