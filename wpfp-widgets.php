@@ -42,8 +42,8 @@ function wpfp_widget_init() {
         <input type="hidden" name="wpfp-widget-submit" value="1" />
     <?php
     }
-    register_sidebar_widget('Most Favorited Posts', 'wpfp_widget_view');
-    register_widget_control('Most Favorited Posts', 'wpfp_widget_control' );
+    wp_register_sidebar_widget('wpfp-most_favorited_posts','Most Favorited Posts', 'wpfp_widget_view');
+    wp_register_widget_control('wpfp-most_favorited_posts','Most Favorited Posts', 'wpfp_widget_control' );
 
     //*** users favorites widget ***//
     function wpfp_users_favorites_widget_view($args) {
@@ -91,8 +91,8 @@ function wpfp_widget_init() {
         <input type="hidden" name="wpfp-uf-widget-submit" value="1" />
     <?php
     }
-    register_sidebar_widget('User\'s Favorites', 'wpfp_users_favorites_widget_view');
-    register_widget_control('User\'s Favorites', 'wpfp_users_favorites_widget_control' );
+    wp_register_sidebar_widget('wpfp-users_favorites','User\'s Favorites', 'wpfp_users_favorites_widget_view');
+    wp_register_widget_control('wpfp-users_favorites','User\'s Favorites', 'wpfp_users_favorites_widget_control' );
 
 }
 add_action('widgets_init', 'wpfp_widget_init');
