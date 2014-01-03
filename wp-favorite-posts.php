@@ -346,7 +346,7 @@ function wpfp_config_page() {
 add_action('admin_menu', 'wpfp_config_page');
 
 function wpfp_update_user_meta($arr) {
-    return update_usermeta(wpfp_get_user_id(),WPFP_META_KEY,$arr);
+    return update_user_meta(wpfp_get_user_id(),WPFP_META_KEY,$arr);
 }
 
 function wpfp_update_post_meta($post_id, $val) {
