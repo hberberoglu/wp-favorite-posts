@@ -3,9 +3,9 @@ Contributors: hberberoglu
 Donate link: http://nxsn.com/donate/
 Tags: favorite posts, favorite, favourite, posts, favorites,
 wp-favorite-posts, reading list, post list, post lists, lists
-Requires at least: 2.0.2
-Tested up to: 3.5
-Stable tag: 1.5.8.1
+Requires at least: 3.5
+Tested up to: 3.8
+Stable tag: 1.5.8.2
 
 Allows visitors to add favorite posts. This plugin use cookies for saving data so
 unregistered users can favorite a post.
