@@ -3,7 +3,7 @@
 Plugin Name: WP Favorite Posts
 Plugin URI: http://nxsn.com/my-projects/wp-favorite-posts-plugin/
 Description: Allows users to add favorite posts. This plugin use cookies for saving data so unregistered users can favorite a post. Put <code>&lt;?php wpfp_link(); ?&gt;</code> where ever you want on a single post. Then create a page which includes that text : <code>[wp-favorite-posts]</code> That's it!
-Version: 1.5.8.4
+Version: 1.5.9
 Author: Huseyin Berberoglu
 Author URI: http://nxsn.com
 
@@ -84,7 +84,7 @@ function wpfp_remove_favorite($post_id = "") {
         do_action('wpfp_after_remove', $post_id);
         if (wpfp_get_option('statics')) wpfp_update_post_meta($post_id, -1);
         if (wpfp_get_option('removed') == 'show add link') {
-            if ($_REQUEST['page']==1):
+            if ( isset($_REQUEST['page']) && $_REQUEST['page'] == 1 ):
                 $str = '';
             else:
                 $str = wpfp_link(1, "add", 0, array( 'post_id' => $post_id ) );
@@ -413,7 +413,7 @@ function wpfp_get_user_options($user) {
 }
 
 function wpfp_is_user_can_edit() {
-    if ($_REQUEST['user'])
+    if (isset($_REQUEST['user']) && $_REQUEST['user'])
         return false;
     return true;
 }
