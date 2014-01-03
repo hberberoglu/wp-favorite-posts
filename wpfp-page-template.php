@@ -13,7 +13,7 @@
     endif;
 
     echo "<ul>";
-    if ($favorite_post_ids):
+    if ($favorite_post_ids) {
 		$favorite_post_ids = array_reverse($favorite_post_ids);
         $post_per_page = wpfp_get_option("post_per_page");
         $page = intval(get_query_var('paged'));
@@ -32,14 +32,14 @@
         echo '</div>';
 
         wp_reset_query();
-    else:
+    } else {
+        $wpfp_options = wpfp_get_options();
         echo "<li>";
         echo $wpfp_options['favorites_empty'];
         echo "</li>";
-    endif;
+    }
     echo "</ul>";
 
     echo '<p>'.wpfp_clear_list_link().'</p>';
     echo "</div>";
     wpfp_cookie_warning();
-?>

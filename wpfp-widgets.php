@@ -8,12 +8,11 @@ function wpfp_widget_init() {
         }
         $title = empty($options['widget_title']) ? 'Most Favorited Posts' : $options['widget_title'];
         echo $before_widget;
-        echo $before_title
-             . $title
-             . $after_title;
+        echo $before_title . $title . $after_title;
         wpfp_list_most_favorited($limit);
         echo $after_widget;
     }
+
     function wpfp_widget_control() {
         $options = wpfp_get_options();
         if (isset($_POST["wpfp-widget-submit"])):
@@ -42,8 +41,8 @@ function wpfp_widget_init() {
         <input type="hidden" name="wpfp-widget-submit" value="1" />
     <?php
     }
-    wp_register_sidebar_widget('wpfp-most_favorited_posts','Most Favorited Posts', 'wpfp_widget_view');
-    wp_register_widget_control('wpfp-most_favorited_posts','Most Favorited Posts', 'wpfp_widget_control' );
+    wp_register_sidebar_widget('wpfp-most_favorited_posts', 'Most Favorited Posts', 'wpfp_widget_view');
+    wp_register_widget_control('wpfp-most_favorited_posts', 'Most Favorited Posts', 'wpfp_widget_control' );
 
     //*** users favorites widget ***//
     function wpfp_users_favorites_widget_view($args) {
@@ -67,6 +66,7 @@ function wpfp_widget_init() {
         endif;
         echo $after_widget;
     }
+
     function wpfp_users_favorites_widget_control() {
         $options = wpfp_get_options();
         if (isset($_POST["wpfp-uf-widget-submit"])):
@@ -93,6 +93,5 @@ function wpfp_widget_init() {
     }
     wp_register_sidebar_widget('wpfp-users_favorites','User\'s Favorites', 'wpfp_users_favorites_widget_view');
     wp_register_widget_control('wpfp-users_favorites','User\'s Favorites', 'wpfp_users_favorites_widget_control' );
-
 }
 add_action('widgets_init', 'wpfp_widget_init');
