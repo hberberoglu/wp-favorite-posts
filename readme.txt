@@ -1,5 +1,5 @@
 === WP Favorite Posts ===
-Contributors: Huseyin Berberoglu
+Contributors: hberberoglu
 Donate link: http://nxsn.com/donate/
 Tags: favorite posts, favorite, favourite, posts, favorites,
 wp-favorite-posts, reading list, post list, post lists, lists
