@@ -18,7 +18,12 @@
 		$favorite_post_ids = array_reverse($favorite_post_ids);
         $post_per_page = wpfp_get_option("post_per_page");
         $page = intval(get_query_var('paged'));
-        query_posts(array('post__in' => $favorite_post_ids, 'posts_per_page'=> $post_per_page, 'orderby' => 'post__in', 'paged' => $page));
+
+        $qry = array('post__in' => $favorite_post_ids, 'posts_per_page'=> $post_per_page, 'orderby' => 'post__in', 'paged' => $page);
+        // custom post type support can easily be added with a line of code like below.
+        // $qry['post_type'] = array('post','page');
+        query_posts($qry);
+
         while ( have_posts() ) : the_post();
             echo "<li><a href='".get_permalink()."' title='". get_the_title() ."'>" . get_the_title() . "</a> ";
             wpfp_remove_favorite_link(get_the_ID());
