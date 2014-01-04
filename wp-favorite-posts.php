@@ -32,6 +32,10 @@ define('WPFP_META_KEY', "wpfp_favorites");
 define('WPFP_USER_OPTION_KEY', "wpfp_useroptions");
 define('WPFP_COOKIE_KEY', "wp-favorite-posts");
 
+// manage default privacy of users favorite post lists by adding this constant to wp-config.php
+if ( !defined( 'WPFP_DEFAULT_PRIVACY_SETTING' ) )
+    define( 'WPFP_DEFAULT_PRIVACY_SETTING', false );
+
 $ajax_mode = 1;
 
 function wp_favorite_posts() {
@@ -178,16 +182,16 @@ function wpfp_get_users_favorites($user = "") {
 }
 
 function wpfp_list_favorite_posts( $args = array() ) {
-    $user = $_REQUEST['user'];
+    $user = isset($_REQUEST['user']) ? $_REQUEST['user'] : "";
     extract($args);
     global $favorite_post_ids;
-    if (!empty($user)):
-        if (!wpfp_is_user_favlist_public($user)):
+    if ( !empty($user) ) {
+        if ( wpfp_is_user_favlist_public($user) )
             $favorite_post_ids = wpfp_get_users_favorites($user);
-        endif;
-    else:
+
+    } else {
         $favorite_post_ids = wpfp_get_users_favorites();
-    endif;
+    }
 
 	if ( @file_exists(TEMPLATEPATH.'/wpfp-page-template.php') || @file_exists(STYLESHEETPATH.'/wpfp-page-template.php') ):
         if(@file_exists(TEMPLATEPATH.'/wpfp-page-template.php')) :
@@ -400,7 +404,8 @@ function wpfp_set_cookie($post_id, $str) {
 
 function wpfp_is_user_favlist_public($user) {
     $user_opts = wpfp_get_user_options($user);
-    if ($user_opts['list_is_public'])
+    if (empty($user_opts)) return WPFP_DEFAULT_PRIVACY_SETTING;
+    if ($user_opts["is_wpfp_list_public"])
         return true;
     else
         return false;

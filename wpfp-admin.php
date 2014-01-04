@@ -26,6 +26,7 @@ if ( isset($_POST['submit']) ) {
 
 	update_option('wpfp_options', $wpfp_options);
 }
+$message = "";
 if ( isset($_GET['action'] ) ) {
 	if ($_GET['action'] == 'reset-statics') {
 		global $wpdb;

@@ -1,15 +1,16 @@
 <?php
+    $wpfp_before = "";
     echo "<div class='wpfp-span'>";
-    if (!empty($user)):
-        if (!wpfp_is_user_favlist_public($user)):
-            echo "$user's Favorite Posts.";
-        else:
-            echo "$user's list is not public.";
-        endif;
-    endif;
+    if (!empty($user)) {
+        if (wpfp_is_user_favlist_public($user)) {
+            $wpfp_before = "$user's Favorite Posts.";
+        } else {
+            $wpfp_before = "$user's list is not public.";
+        }
+    }
 
     if ($wpfp_before):
-        echo "<p>".$wpfp_before."</p>";
+        echo '<div class="wpfp-page-before">'.$wpfp_before.'</div>';
     endif;
 
     echo "<ul>";
