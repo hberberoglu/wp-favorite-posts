@@ -3,8 +3,13 @@ $wpfp_options = get_option('wpfp_options');
 if ( isset($_POST['submit']) ) {
 	if ( function_exists('current_user_can') && !current_user_can('manage_options') )
 		die(__('Cheatin&#8217; uh?'));
-    if ($_POST['show_remove_link'] == 'show_remove_link') $_POST['added'] = 'show remove link';
-    if ($_POST['show_add_link'] == 'show_add_link') $_POST['removed'] = 'show add link';
+
+    if (isset($_POST['show_remove_link']) && $_POST['show_remove_link'] == 'show_remove_link')
+        $_POST['added'] = 'show remove link';
+
+    if (isset($_POST['show_add_link']) && $_POST['show_add_link'] == 'show_add_link')
+        $_POST['removed'] = 'show add link';
+
 	$wpfp_options['add_favorite'] = htmlspecialchars($_POST['add_favorite']);
 	$wpfp_options['added'] = htmlspecialchars($_POST['added']);
 	$wpfp_options['remove_favorite'] = htmlspecialchars($_POST['remove_favorite']);
@@ -14,17 +19,26 @@ if ( isset($_POST['submit']) ) {
 	$wpfp_options['favorites_empty'] = htmlspecialchars($_POST['favorites_empty']);
 	$wpfp_options['rem'] = htmlspecialchars($_POST['rem']);
 	$wpfp_options['cookie_warning'] = htmlspecialchars($_POST['cookie_warning']);
-	$wpfp_options['opt_only_registered'] = htmlspecialchars($_POST['opt_only_registered']);
 	$wpfp_options['text_only_registered'] = htmlspecialchars($_POST['text_only_registered']);
 	$wpfp_options['statics'] = htmlspecialchars($_POST['statics']);
 	$wpfp_options['before_image'] = htmlspecialchars($_POST['before_image']);
 	$wpfp_options['custom_before_image'] = htmlspecialchars($_POST['custom_before_image']);
-	$wpfp_options['dont_load_js_file'] = htmlspecialchars($_POST['dont_load_js_file']);
-	$wpfp_options['dont_load_css_file'] = htmlspecialchars($_POST['dont_load_css_file']);
 	$wpfp_options['autoshow'] = htmlspecialchars($_POST['autoshow']);
 	$wpfp_options['post_per_page'] = htmlspecialchars($_POST['post_per_page']);
 
-	update_option('wpfp_options', $wpfp_options);
+    $wpfp_options['dont_load_js_file'] = '';
+    if (isset($_POST['dont_load_js_file']))
+        $wpfp_options['dont_load_js_file'] = htmlspecialchars($_POST['dont_load_js_file']);
+
+    $wpfp_options['dont_load_css_file'] = '';
+    if (isset($_POST['dont_load_css_file']))
+        $wpfp_options['dont_load_css_file'] = htmlspecialchars($_POST['dont_load_css_file']);
+
+    $wpfp_options['opt_only_registered'] = '';
+    if (isset($_POST['opt_only_registered']))
+        $wpfp_options['opt_only_registered'] = htmlspecialchars($_POST['opt_only_registered']);
+
+    update_option('wpfp_options', $wpfp_options);
 }
 $message = "";
 if ( isset($_GET['action'] ) ) {

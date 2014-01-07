@@ -3,7 +3,7 @@
 Plugin Name: WP Favorite Posts
 Plugin URI: http://nxsn.com/my-projects/wp-favorite-posts-plugin/
 Description: Allows users to add favorite posts. This plugin use cookies for saving data so unregistered users can favorite a post. Put <code>&lt;?php wpfp_link(); ?&gt;</code> where ever you want on a single post. Then create a page which includes that text : <code>[wp-favorite-posts]</code> That's it!
-Version: 1.5.9.1
+Version: 1.6.0
 Author: Huseyin Berberoglu
 Author URI: http://nxsn.com
 
@@ -41,7 +41,7 @@ $ajax_mode = 1;
 function wp_favorite_posts() {
     if (isset($_REQUEST['wpfpaction'])):
         global $ajax_mode;
-        $ajax_mode = $_REQUEST['ajax'];
+        $ajax_mode = isset($_REQUEST['ajax']) ? $_REQUEST['ajax'] : false;
         if ($_REQUEST['wpfpaction'] == 'add') {
             wpfp_add_favorite();
         } else if ($_REQUEST['wpfpaction'] == 'remove') {
@@ -134,7 +134,8 @@ function wpfp_check_favorited($cid) {
 
 function wpfp_link( $return = 0, $action = "", $show_span = 1, $args = array() ) {
     global $post;
-    $post_id = $post->ID;
+    //print_r($post);
+    $post_id = &$post->ID;
     extract($args);
     $str = "";
     if ($show_span)
@@ -337,7 +338,9 @@ function wpfp_init() {
     $wpfp_options['dont_load_js_file'] = 0;
     $wpfp_options['dont_load_css_file'] = 0;
     $wpfp_options['post_per_page'] = 20;
-    add_option('wpfp_options', $wpfp_options, 'Favorite Posts Options');
+    $wpfp_options['autoshow'] = '';
+    $wpfp_options['opt_only_registered'] = 0;
+    add_option('wpfp_options', $wpfp_options);
 }
 add_action('activate_wp-favorite-posts/wp-favorite-posts.php', 'wpfp_init');
 
