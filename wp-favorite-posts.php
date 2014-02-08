@@ -3,7 +3,7 @@
 Plugin Name: WP Favorite Posts
 Plugin URI: http://nxsn.com/my-projects/wp-favorite-posts-plugin/
 Description: Allows users to add favorite posts. This plugin use cookies for saving data so unregistered users can favorite a post. Put <code>&lt;?php wpfp_link(); ?&gt;</code> where ever you want on a single post. Then create a page which includes that text : <code>[wp-favorite-posts]</code> That's it!
-Version: 1.6.1
+Version: 1.6.2
 Author: Huseyin Berberoglu
 Author URI: http://nxsn.com
 
@@ -64,7 +64,7 @@ function wpfp_add_favorite($post_id = "") {
     if (wpfp_do_add_to_list($post_id)) {
         // added, now?
         do_action('wpfp_after_add', $post_id);
-        if (wpfp_get_option('statics')) wpfp_update_post_meta($post_id, 1);
+        if (wpfp_get_option('statistics')) wpfp_update_post_meta($post_id, 1);
         if (wpfp_get_option('added') == 'show remove link') {
             $str = wpfp_link(1, "remove", 0, array( 'post_id' => $post_id ) );
             wpfp_die_or_go($str);
@@ -88,7 +88,7 @@ function wpfp_remove_favorite($post_id = "") {
     if (wpfp_do_remove_favorite($post_id)) {
         // removed, now?
         do_action('wpfp_after_remove', $post_id);
-        if (wpfp_get_option('statics')) wpfp_update_post_meta($post_id, -1);
+        if (wpfp_get_option('statistics')) wpfp_update_post_meta($post_id, -1);
         if (wpfp_get_option('removed') == 'show add link') {
             if ( isset($_REQUEST['page']) && $_REQUEST['page'] == 1 ):
                 $str = '';
@@ -331,7 +331,7 @@ function wpfp_init() {
     $wpfp_options['cookie_warning'] = "Your favorite posts saved to your browsers cookies. If you clear cookies also favorite posts will be deleted.";
     $wpfp_options['rem'] = "remove";
     $wpfp_options['text_only_registered'] = "Only registered users can favorite!";
-    $wpfp_options['statics'] = 1;
+    $wpfp_options['statistics'] = 1;
     $wpfp_options['widget_title'] = '';
     $wpfp_options['widget_limit'] = 5;
     $wpfp_options['uf_widget_limit'] = 5;
