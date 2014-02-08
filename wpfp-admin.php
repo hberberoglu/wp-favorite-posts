@@ -20,7 +20,7 @@ if ( isset($_POST['submit']) ) {
 	$wpfp_options['rem'] = htmlspecialchars($_POST['rem']);
 	$wpfp_options['cookie_warning'] = htmlspecialchars($_POST['cookie_warning']);
 	$wpfp_options['text_only_registered'] = htmlspecialchars($_POST['text_only_registered']);
-	$wpfp_options['statics'] = htmlspecialchars($_POST['statics']);
+	$wpfp_options['statistics'] = htmlspecialchars($_POST['statistics']);
 	$wpfp_options['before_image'] = htmlspecialchars($_POST['before_image']);
 	$wpfp_options['custom_before_image'] = htmlspecialchars($_POST['custom_before_image']);
 	$wpfp_options['autoshow'] = htmlspecialchars($_POST['autoshow']);
@@ -42,7 +42,7 @@ if ( isset($_POST['submit']) ) {
 }
 $message = "";
 if ( isset($_GET['action'] ) ) {
-	if ($_GET['action'] == 'reset-statics') {
+	if ($_GET['action'] == 'reset-statistics') {
 		global $wpdb;
 		    $results = $wpdb->get_results($query);
 		$query = "DELETE FROM $wpdb->postmeta WHERE meta_key = 'wpfp_favorites'";
@@ -68,7 +68,7 @@ if ( isset($_GET['action'] ) ) {
 <script>
 jQuery(document).ready(function($) {
 	$('.postbox').children('h3, .handlediv').click(function(){ $(this).siblings('.inside').toggle();});
-	$('#wpfp-reset-statics').click(function(){
+	$('#wpfp-reset-statistics').click(function(){
 		return confirm('All statistic data will be deleted, are you sure ?');
 		});
 });
@@ -157,25 +157,25 @@ jQuery(document).ready(function($) {
                 </td>
             </tr>
             <tr>
-                <th><?php _e("Most favorited posts statics", "wp-favorite-posts") ?>*</th>
+                <th><?php _e("Most favorited posts statistics", "wp-favorite-posts") ?>*</th>
                 <td>
-                    <label for="stats-enabled"><input type="radio" name="statics" id="stats-enabled" value="1" <?php if ($wpfp_options['statics']) echo "checked='checked'" ?> /> Enabled</label>
-                    <label for="stats-disabled"><input type="radio" name="statics" id="stats-disabled" value="0" <?php if (!$wpfp_options['statics']) echo "checked='checked'" ?> /> Disabled</label>
+                    <label for="stats-enabled"><input type="radio" name="statistics" id="stats-enabled" value="1" <?php if ($wpfp_options['statistics']) echo "checked='checked'" ?> /> Enabled</label>
+                    <label for="stats-disabled"><input type="radio" name="statistics" id="stats-disabled" value="0" <?php if (!$wpfp_options['statistics']) echo "checked='checked'" ?> /> Disabled</label>
                 </td>
             </tr>
         	<tr><td></td>
                 <td>
                 	<div class="submitbox">
 	                	<div id="delete-action">
-						<a href="?page=wp-favorite-posts&amp;action=reset-statics" id="wpfp-reset-statics" class="submitdelete deletion">Reset Statistic Data</a>
+						<a href="?page=wp-favorite-posts&amp;action=reset-statistics" id="wpfp-reset-statistics" class="submitdelete deletion">Reset Statistic Data</a>
 						</div>
 					</div>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <p>* If statics enabled plugin will count how much a post added to favorites.<br />
-                        You can show this statics with <a href="widgets.php" title="Go to widgets">"Most Favorited Posts" widget</a>.</p>
+                    <p>* If statistics enabled plugin will count how much a post added to favorites.<br />
+                        You can show this statistics with <a href="widgets.php" title="Go to widgets">"Most Favorited Posts" widget</a>.</p>
                 </td>
             </tr>
 
