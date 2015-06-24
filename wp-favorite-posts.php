@@ -38,6 +38,16 @@ if ( !defined( 'WPFP_DEFAULT_PRIVACY_SETTING' ) )
 
 $ajax_mode = 1;
 
+function wpfp_load_translation() {
+    load_plugin_textdomain(
+        "wp-favorite-posts",
+        false,
+        dirname(plugin_basename(__FILE__)).'/lang'
+    );
+}
+
+add_action( 'plugins_loaded', 'wpfp_load_translation' );
+
 function wp_favorite_posts() {
     if (isset($_REQUEST['wpfpaction'])):
         global $ajax_mode;
