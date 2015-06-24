@@ -1,0 +1,166 @@
+# Copyright (C) 2015 WP Favorite Posts
+# This file is distributed under the same license as the WP Favorite Posts package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Favorite Posts 1.6.2\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-favorite-posts\n"
+"POT-Creation-Date: 2015-04-30 05:12:38+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-04-30 16:05+0900\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: japanse\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#. #-#-#-#-#  wp-favorite-posts.pot (WP Favorite Posts 1.6.2)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: wp-favorite-posts.php:363
+msgid "WP Favorite Posts"
+msgstr "WP Favorite Posts"
+
+#: wpfp-admin.php:5
+msgid "Cheatin&#8217; uh?"
+msgstr "Cheatin&#8217; uh?"
+
+#: wpfp-admin.php:61
+msgid "Options saved."
+msgstr "オプション設定が保存されました"
+
+#: wpfp-admin.php:64
+msgid "WP Favorite Posts Configuration"
+msgstr "項目の設定"
+
+#: wpfp-admin.php:77 wpfp-admin.php:99 wpfp-admin.php:248 wpfp-admin.php:269
+msgid "Click to open/close"
+msgstr "Click to open/close"
+
+#: wpfp-admin.php:80
+msgid "Do you use it ?"
+msgstr "このプラグインを気に入っていただけましたか？"
+
+#: wpfp-admin.php:102
+msgid "Options"
+msgstr "オプション"
+
+#: wpfp-admin.php:107
+msgid "Only <strong>registered users</strong> can favorite"
+msgstr "登録ユーザーのみ、お気に入りリストを作成できるようにする"
+
+#: wpfp-admin.php:111
+msgid "Auto show favorite link"
+msgstr "お気に入り追加リンクを表示する場所"
+
+#: wpfp-admin.php:123
+msgid "Before Link Image"
+msgstr "お気に入り追加リンクの前に表示するアイコン"
+
+#: wpfp-admin.php:154
+msgid "Favorite post per page"
+msgstr "1ページあたりに表示するお気に入りリストの数"
+
+#: wpfp-admin.php:160
+msgid "Most favorited posts statics"
+msgstr "お気に入りの統計"
+
+#: wpfp-admin.php:185 wpfp-admin.php:240 wpfp-admin.php:262
+msgid "Update options &raquo;"
+msgstr "設定を更新する"
+
+#: wpfp-admin.php:197
+msgid "Label Settings"
+msgstr "ラベルの文言設定"
+
+#: wpfp-admin.php:203
+msgid "Text for add link"
+msgstr "お気に入りに追加する時"
+
+#: wpfp-admin.php:206
+msgid "Text for added"
+msgstr "お気に入り追加が完了した時"
+
+#: wpfp-admin.php:210
+msgid "Text for remove link"
+msgstr "お気に入りから外す時"
+
+#: wpfp-admin.php:213
+msgid "Text for removed"
+msgstr "お気に入りから外れた時"
+
+#: wpfp-admin.php:219
+msgid "Text for clear link"
+msgstr "お気に入りリストをクリアする時"
+
+#: wpfp-admin.php:222
+msgid "Text for cleared"
+msgstr "お気に入りリストがクリアされた時"
+
+#: wpfp-admin.php:225
+msgid "Text for favorites are empty"
+msgstr "お気に入りリストが無い時"
+
+#: wpfp-admin.php:228
+msgid "Text for [remove] link"
+msgstr "削除リンクの"
+
+#: wpfp-admin.php:231
+msgid "Text for favorites saved to cookies"
+msgstr "お気に入りリストがcookieを使って保存された時"
+
+#: wpfp-admin.php:234
+msgid "Text for \"only registered users can favorite\" error message"
+msgstr "登録ユーザー以外がお気に入りリストを作成した時のエラーメッセージ"
+
+#: wpfp-admin.php:251
+msgid "Advanced Settings"
+msgstr "高度な設定（通常は必要ありません）"
+
+#: wpfp-admin.php:272
+msgid "Help"
+msgstr "ヘルプ"
+
+#: wpfp-page-template.php:35
+msgid "&larr; Previous Entries"
+msgstr "前のページ"
+
+#: wpfp-page-template.php:36
+msgid "Next Entries &rarr;"
+msgstr "次のページ"
+
+#: wpfp-widgets.php:28 wpfp-widgets.php:82
+msgid "Title:"
+msgstr "タイトル"
+
+#: wpfp-widgets.php:33 wpfp-widgets.php:87
+msgid "Number of posts to show:"
+msgstr "お気に入りリストを表示する件数："
+
+#. Plugin URI of the plugin/theme
+msgid "http://nxsn.com/my-projects/wp-favorite-posts-plugin/"
+msgstr "http://nxsn.com/my-projects/wp-favorite-posts-plugin/"
+
+#. Description of the plugin/theme
+msgid ""
+"Allows users to add favorite posts. This plugin use cookies for saving data "
+"so unregistered users can favorite a post. Put <code>&lt;?php wpfp_link(); ?"
+"&gt;</code> where ever you want on a single post. Then create a page which "
+"includes that text : <code>[wp-favorite-posts]</code> That's it!"
+msgstr ""
+"お気に入りページを保存しておく事ができます。Cookieを利用しているため、"
+"WordPressにログインしていないユーザーでもお気に入りページを保存することができ"
+"ます。single.phpの好きな場所に<code>&lt;?php wpfp_link(); ?&gt;</code>を挿入"
+"し、お気に入り追加ボタンを表示できます。リストを表示するには、固定ページに次"
+"のショートコードを置いてください。<code>[wp-favorite-posts]</code> "
+
+#. Author of the plugin/theme
+msgid "Huseyin Berberoglu"
+msgstr "Huseyin Berberoglu"
+
+#. Author URI of the plugin/theme
+msgid "http://nxsn.com"
+msgstr "http://nxsn.com"
