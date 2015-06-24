@@ -33,9 +33,9 @@ function wpfp_widget_init() {
                 <?php _e('Number of posts to show:'); ?> <input type="text" value="<?php echo $limit; ?>" style="width: 28px; text-align:center;" id="wpfp-limit" name="wpfp-limit" />
             </label>
         </p>
-        <?php if (!$options['statics']) { ?>
+        <?php if (!$options['statistics']) { ?>
         <p>
-            You must enable statics from favorite posts <a href="plugins.php?page=wp-favorite-posts" title="Favorite Posts Configuration">configuration page</a>.
+            You must enable statistics from favorite posts <a href="plugins.php?page=wp-favorite-posts" title="Favorite Posts Configuration">configuration page</a>.
         </p>
         <?php } ?>
         <input type="hidden" name="wpfp-widget-submit" value="1" />
