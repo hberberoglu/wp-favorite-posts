@@ -1,8 +1,8 @@
 <?php
 $wpfp_options = get_option('wpfp_options');
 if ( isset($_POST['submit']) ) {
-	if ( function_exists('current_user_can') && !current_user_can('manage_options') )
-		die(__('Cheatin&#8217; uh?'));
+    if ( function_exists('current_user_can') && !current_user_can('manage_options') )
+        die(__('Cheatin&#8217; uh?'));
 
     if (isset($_POST['show_remove_link']) && $_POST['show_remove_link'] == 'show_remove_link')
         $_POST['added'] = 'show remove link';
@@ -10,21 +10,21 @@ if ( isset($_POST['submit']) ) {
     if (isset($_POST['show_add_link']) && $_POST['show_add_link'] == 'show_add_link')
         $_POST['removed'] = 'show add link';
 
-	$wpfp_options['add_favorite'] = htmlspecialchars($_POST['add_favorite']);
-	$wpfp_options['added'] = htmlspecialchars($_POST['added']);
-	$wpfp_options['remove_favorite'] = htmlspecialchars($_POST['remove_favorite']);
-	$wpfp_options['removed'] = htmlspecialchars($_POST['removed']);
-	$wpfp_options['clear'] = htmlspecialchars($_POST['clear']);
-	$wpfp_options['cleared'] = htmlspecialchars($_POST['cleared']);
-	$wpfp_options['favorites_empty'] = htmlspecialchars($_POST['favorites_empty']);
-	$wpfp_options['rem'] = htmlspecialchars($_POST['rem']);
-	$wpfp_options['cookie_warning'] = htmlspecialchars($_POST['cookie_warning']);
-	$wpfp_options['text_only_registered'] = htmlspecialchars($_POST['text_only_registered']);
-	$wpfp_options['statistics'] = htmlspecialchars($_POST['statistics']);
-	$wpfp_options['before_image'] = htmlspecialchars($_POST['before_image']);
-	$wpfp_options['custom_before_image'] = htmlspecialchars($_POST['custom_before_image']);
-	$wpfp_options['autoshow'] = htmlspecialchars($_POST['autoshow']);
-	$wpfp_options['post_per_page'] = htmlspecialchars($_POST['post_per_page']);
+    $wpfp_options['add_favorite'] = htmlspecialchars($_POST['add_favorite']);
+    $wpfp_options['added'] = htmlspecialchars($_POST['added']);
+    $wpfp_options['remove_favorite'] = htmlspecialchars($_POST['remove_favorite']);
+    $wpfp_options['removed'] = htmlspecialchars($_POST['removed']);
+    $wpfp_options['clear'] = htmlspecialchars($_POST['clear']);
+    $wpfp_options['cleared'] = htmlspecialchars($_POST['cleared']);
+    $wpfp_options['favorites_empty'] = htmlspecialchars($_POST['favorites_empty']);
+    $wpfp_options['rem'] = htmlspecialchars($_POST['rem']);
+    $wpfp_options['cookie_warning'] = htmlspecialchars($_POST['cookie_warning']);
+    $wpfp_options['text_only_registered'] = htmlspecialchars($_POST['text_only_registered']);
+    $wpfp_options['statistics'] = htmlspecialchars($_POST['statistics']);
+    $wpfp_options['before_image'] = htmlspecialchars($_POST['before_image']);
+    $wpfp_options['custom_before_image'] = htmlspecialchars($_POST['custom_before_image']);
+    $wpfp_options['autoshow'] = htmlspecialchars($_POST['autoshow']);
+    $wpfp_options['post_per_page'] = htmlspecialchars($_POST['post_per_page']);
 
     $wpfp_options['dont_load_js_file'] = '';
     if (isset($_POST['dont_load_js_file']))
@@ -38,23 +38,27 @@ if ( isset($_POST['submit']) ) {
     if (isset($_POST['opt_only_registered']))
         $wpfp_options['opt_only_registered'] = htmlspecialchars($_POST['opt_only_registered']);
 
+    $wpfp_options['use_nonce_logged_in'] = '';
+    if (isset($_POST['use_nonce_logged_in']))
+        $wpfp_options['use_nonce_logged_in'] = htmlspecialchars($_POST['use_nonce_logged_in']);
+
     update_option('wpfp_options', $wpfp_options);
 }
 $message = "";
 if ( isset($_GET['action'] ) ) {
-	if ($_GET['action'] == 'reset-statistics') {
-		global $wpdb;
-		    $results = $wpdb->get_results($query);
-		$query = "DELETE FROM $wpdb->postmeta WHERE meta_key = 'wpfp_favorites'";
-		
-		$message = '<div class="updated below-h2" id="message"><p>';
-		if ($wpdb->query($query)) {
-			$message .= "All statistic data about wp favorite posts plugin have been <strong>deleted</strong>.";
-		} else {
-			$message .= "Something gone <strong>wrong</strong>. Data couldn't delete. Maybe thre isn't any data to delete?";
-		}	
-		$message .= '</p></div>';
-	}
+    if ($_GET['action'] == 'reset-statistics') {
+        global $wpdb;
+            $results = $wpdb->get_results($query);
+        $query = "DELETE FROM $wpdb->postmeta WHERE meta_key = 'wpfp_favorites'";
+
+        $message = '<div class="updated below-h2" id="message"><p>';
+        if ($wpdb->query($query)) {
+            $message .= "All statistic data about wp favorite posts plugin have been <strong>deleted</strong>.";
+        } else {
+            $message .= "Something gone <strong>wrong</strong>. Data couldn't delete. Maybe thre isn't any data to delete?";
+        }
+        $message .= '</p></div>';
+    }
 }
 ?>
 <?php if ( !empty($_POST ) ) : ?>
@@ -67,10 +71,10 @@ if ( isset($_GET['action'] ) ) {
 <div class="meta-box-sortables">
 <script>
 jQuery(document).ready(function($) {
-	$('.postbox').children('h3, .handlediv').click(function(){ $(this).siblings('.inside').toggle();});
-	$('#wpfp-reset-statistics').click(function(){
-		return confirm('All statistic data will be deleted, are you sure ?');
-		});
+    $('.postbox').children('h3, .handlediv').click(function(){ $(this).siblings('.inside').toggle();});
+    $('#wpfp-reset-statistics').click(function(){
+        return confirm('All statistic data will be deleted, are you sure ?');
+        });
 });
 </script>
 <div class="postbox">
@@ -163,13 +167,13 @@ jQuery(document).ready(function($) {
                     <label for="stats-disabled"><input type="radio" name="statistics" id="stats-disabled" value="0" <?php if (!$wpfp_options['statistics']) echo "checked='checked'" ?> /> Disabled</label>
                 </td>
             </tr>
-        	<tr><td></td>
+            <tr><td></td>
                 <td>
-                	<div class="submitbox">
-	                	<div id="delete-action">
-						<a href="?page=wp-favorite-posts&amp;action=reset-statistics" id="wpfp-reset-statistics" class="submitdelete deletion">Reset Statistic Data</a>
-						</div>
-					</div>
+                    <div class="submitbox">
+                        <div id="delete-action">
+                        <a href="?page=wp-favorite-posts&amp;action=reset-statistics" id="wpfp-reset-statistics" class="submitdelete deletion">Reset Statistic Data</a>
+                        </div>
+                    </div>
                 </td>
             </tr>
             <tr>
@@ -204,16 +208,16 @@ jQuery(document).ready(function($) {
             </tr>
             <tr>
                 <th><?php _e("Text for added", "wp-favorite-posts") ?></th><td><input type="checkbox"  <?php if ($wpfp_options['added'] == 'show remove link') echo "checked='checked'"; ?> name="show_remove_link" onclick="jQuery('#added').val(''); jQuery('#added').toggle();" value="show_remove_link" id="show_remove_link" /> <label for="show_remove_link">Show remove link</label>
-				<br /><input id="added" type="text" name="added" <?php if ($wpfp_options['added'] == 'show remove link') echo "style='display:none;'"; ?> value="<?php echo stripslashes($wpfp_options['added']); ?>" /></td>
+                <br /><input id="added" type="text" name="added" <?php if ($wpfp_options['added'] == 'show remove link') echo "style='display:none;'"; ?> value="<?php echo stripslashes($wpfp_options['added']); ?>" /></td>
             </tr>
             <tr>
                 <th><?php _e("Text for remove link", "wp-favorite-posts") ?></th><td><input type="text" name="remove_favorite" value="<?php echo stripslashes($wpfp_options['remove_favorite']); ?>" /></td>
             </tr>
             <tr>
                 <th><?php _e("Text for removed", "wp-favorite-posts") ?></th>
-				<td><input type="checkbox" <?php if ($wpfp_options['removed'] == 'show add link') echo "checked='checked'"; ?> name="show_add_link" id="show_add_link" onclick="jQuery('#removed').val(''); jQuery('#removed').toggle();" value='show_add_link' /> <label for="show_add_link">Show add link</label>
-				<br />
-				<input id="removed" type="text" name="removed" <?php if ($wpfp_options['removed'] == 'show add link') echo "style='display:none;'"; ?> value="<?php echo stripslashes($wpfp_options['removed']); ?>" /></td>
+                <td><input type="checkbox" <?php if ($wpfp_options['removed'] == 'show add link') echo "checked='checked'"; ?> name="show_add_link" id="show_add_link" onclick="jQuery('#removed').val(''); jQuery('#removed').toggle();" value='show_add_link' /> <label for="show_add_link">Show add link</label>
+                <br />
+                <input id="removed" type="text" name="removed" <?php if ($wpfp_options['removed'] == 'show add link') echo "style='display:none;'"; ?> value="<?php echo stripslashes($wpfp_options['removed']); ?>" /></td>
             </tr>
             <tr>
                 <th><?php _e("Text for clear link", "wp-favorite-posts") ?></th><td><input type="text" name="clear" value="<?php echo stripslashes($wpfp_options['clear']); ?>" /></td>
@@ -256,7 +260,10 @@ jQuery(document).ready(function($) {
             </tr>
             <tr>
                 <td><input type="checkbox" value="1" <?php if ($wpfp_options['dont_load_css_file'] == '1') echo "checked='checked'"; ?> name="dont_load_css_file" id="dont_load_css_file" /> <label for="dont_load_css_file">Don't load css file</label></td>
-            </tr>			
+            </tr>
+            <tr>
+                <td><input type="checkbox" value="1" <?php if ($wpfp_options['use_nonce_logged_in'] == '1') echo "checked='checked'"; ?> name="use_nonce_logged_in" id="use_nonce_logged_in" /> <label for="use_nonce_logged_in">Use nonces for logged in users</label></td>
+            </tr>
             <tr>
                 <td>
                     <input type="submit" name="submit" class="button button-primary" value="<?php _e('Update options &raquo;'); ?>" />
