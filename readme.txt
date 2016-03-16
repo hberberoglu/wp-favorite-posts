@@ -5,7 +5,7 @@ Tags: favorite posts, favorite, favourite, posts, favorites,
 wp-favorite-posts, reading list, post list, post lists, lists
 Requires at least: 3.5
 Tested up to: 4.4.2
-Stable tag: 1.6.4
+Stable tag: 1.6.5
 
 Allows visitors to add favorite posts. This plugin use cookies for saving data so
 unregistered users can favorite a post.
@@ -51,7 +51,7 @@ text into content section. This page will contain users favorite posts.
 3. Advanced Settings
 
 == Changelog ==
-= 1.6.3 (2014-04-28) =
+= 1.6.5 (2016-03-16) =
 * Security update: Fix cross-site scripting (XSS) vulnerability props: JPCERT/CC Vulnerability Handling Team & Gen Sato
 
 = 1.6.2 (2014-04-28) =
