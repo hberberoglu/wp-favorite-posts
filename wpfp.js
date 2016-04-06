@@ -1,5 +1,5 @@
 jQuery(document).ready( function($) {
-    $('.wpfp-link').live('click', function() {
+    $('.wpfp-span').on('click', '.wpfp-link', function() {
         dhis = $(this);
         wpfp_do_js( dhis, 1 );
         // for favorite post listing page
