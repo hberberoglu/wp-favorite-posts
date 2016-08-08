@@ -393,7 +393,7 @@ function wpfp_get_options() {
 
 function wpfp_get_user_id() {
     global $current_user;
-    get_currentuserinfo();
+    $current_user = wp_get_current_user();
     return $current_user->ID;
 }
 
