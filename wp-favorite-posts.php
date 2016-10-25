@@ -312,7 +312,9 @@ function wpfp_content_filter($content) {
 add_filter('the_content','wpfp_content_filter');
 
 function wpfp_shortcode_func() {
-    wpfp_list_favorite_posts();
+	ob_start();
+		wpfp_list_favorite_posts();
+	return ob_get_clean();
 }
 add_shortcode('wp-favorite-posts', 'wpfp_shortcode_func');
 
@@ -393,7 +395,7 @@ function wpfp_get_options() {
 
 function wpfp_get_user_id() {
     global $current_user;
-    get_currentuserinfo();
+    wp_get_current_user();
     return $current_user->ID;
 }
 
