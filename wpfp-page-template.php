@@ -25,7 +25,13 @@
         
         echo "<ul>";
         while ( have_posts() ) : the_post();
-            echo "<li><a href='".get_permalink()."' title='". get_the_title() ."'>" . get_the_title() . "</a> ";
+	    if ( has_post_thumbnail() ) {
+//              $thumbnail = get_the_post_thumbnail( get_the_ID(), array( 100,100), array( 'class' => 'alignleft' ) );
+                $thumbnail = get_the_post_thumbnail( get_the_ID(), array( 100,100) );
+            } else {
+                $thumbnail = '';
+            }
+            echo "<li style='display:block;width:90%;'><a href='".get_permalink()."' title='". get_the_title() ."'>$thumbnail " . get_the_title() . "</a> ";
             wpfp_remove_favorite_link(get_the_ID());
             echo "</li>";
         endwhile;
