@@ -14,9 +14,15 @@
     endif;
 
     if ($favorite_post_ids) {
-		$favorite_post_ids = array_reverse($favorite_post_ids);
+	$favorite_post_ids = array_reverse($favorite_post_ids);
         $post_per_page = wpfp_get_option("post_per_page");
         $page = intval(get_query_var('paged'));
+
+	$thumbnail_show = wpfp_get_option('thumbnail_show');
+	$thumbnail_default = wpfp_get_option('thumbnail_default');
+	$thumbnail_alignment = wpfp_get_option('thumbnail_alignment');
+	$thumbnail_width = wpfp_get_option('thumbnail_width');
+	$thumbnail_height = wpfp_get_option('thumbnail_height');
 
         $qry = array('post__in' => $favorite_post_ids, 'posts_per_page'=> $post_per_page, 'orderby' => 'post__in', 'paged' => $page);
         // custom post type support can easily be added with a line of code like below.
@@ -25,12 +31,14 @@
         
         echo "<ul>";
         while ( have_posts() ) : the_post();
-	    if ( has_post_thumbnail() ) {
-//              $thumbnail = get_the_post_thumbnail( get_the_ID(), array( 100,100), array( 'class' => 'alignleft' ) );
-                $thumbnail = get_the_post_thumbnail( get_the_ID(), array( 100,100) );
+	    if ( $thumbnail_show == '1' && has_post_thumbnail() ) {
+              $thumbnail = get_the_post_thumbnail( get_the_ID(), array( "$thumbnail_width", "$thumbnail_height" ), array( 'class' => "$thumbnail_alignment" ) );
             } else {
-                $thumbnail = '';
+              $thumbnail = '<img src="' . $thumbnail_default . '" class="' . $thumbnail_alignment . '" style="width:' .$thumbnail_width. ';height="' .$thumbnail_height. '" />';
             }
+	    if ( $thumbnail_show == '0' ) {
+	      $thumbnail = '';
+	    }
             echo "<li style='display:block;width:90%;'><a href='".get_permalink()."' title='". get_the_title() ."'>$thumbnail " . get_the_title() . "</a> ";
             wpfp_remove_favorite_link(get_the_ID());
             echo "</li>";
@@ -48,6 +56,14 @@
     } else {
         $wpfp_options = wpfp_get_options();
         echo "<ul><li>";
+        echo $wpfp_options['favorites_empty'];
+        echo "</li></ul>";
+    }
+
+    echo '<p>'.wpfp_clear_list_link().'</p>';
+    echo "</div>";
+    wpfp_cookie_warning();
+
         echo $wpfp_options['favorites_empty'];
         echo "</li></ul>";
     }
