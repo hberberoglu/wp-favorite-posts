@@ -63,11 +63,3 @@
     echo '<p>'.wpfp_clear_list_link().'</p>';
     echo "</div>";
     wpfp_cookie_warning();
-
-        echo $wpfp_options['favorites_empty'];
-        echo "</li></ul>";
-    }
-
-    echo '<p>'.wpfp_clear_list_link().'</p>';
-    echo "</div>";
-    wpfp_cookie_warning();
