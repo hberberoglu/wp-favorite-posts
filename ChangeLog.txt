@@ -1,7 +1,0 @@
-------------------
-WP Favorite Posts - ChangeLog
-http://wordpress.org/extend/plugins/wp-favorite-posts/
-http://nxsn.com
-------------------
-
-For changelog see: http://wordpress.org/extend/plugins/wp-favorite-posts/changelog/
