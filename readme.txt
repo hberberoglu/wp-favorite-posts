@@ -69,14 +69,21 @@ text into content section. This page will contain users favorite posts.
 
 == Changelog ==
 = 2.0.0 (2016-11-13) =
+
+Released by leehodson.
+
 * Rewrite: Converted to Admin Page Framework. Changes made to provide greater scope for feature enhancements and for new features to be added. (leehodson).
 * Added: Export setttings.
 * Added Import settings.
 * Added Reset All Data (resets version 2.0 data only. Actually, this deletes all > 2.x options data from the database).
 
 = 1.7.1 (2016-11-13) =
+
+Released by leehodson.
+
 * Feature: Include thumbnails alongside post title (leehodson).
-* Updates: Introduced various changes to the code. Changes came from various GitHub listed code forks (leehodson).
+* Fix: Changed plugin directory variable and removed hardcoded URLs & directory paths.
+* Updates: Introduced various other changes to the code. Some changes came from edits made in other GitHub listed code forks.
 
 = 1.6.6 (2016-03-16) =
 * Security update: Fix cross-site scripting (XSS) vulnerability props: JPCERT/CC Vulnerability Handling Team & Gen Sato
