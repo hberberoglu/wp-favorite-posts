@@ -5,6 +5,7 @@ $thumbnail_default = WPFavoritePostsAdminPageFramework::getOption( 'WPFavoritePo
 $thumbnail_alignment = WPFavoritePostsAdminPageFramework::getOption( 'WPFavoritePosts', array( 'thumbnail_options', 'thumbnail_alignment' ), 'default' );
 $thumbnail_width = WPFavoritePostsAdminPageFramework::getOption( 'WPFavoritePosts', array( 'thumbnail_options', 'thumbnail_width' ), 'default' );
 $thumbnail_height = WPFavoritePostsAdminPageFramework::getOption( 'WPFavoritePosts', array( 'thumbnail_options', 'thumbnail_height' ), 'default' );
+$favorites_empty = WPFavoritePostsAdminPageFramework::getOption( 'WPFavoritePosts', array( 'label_options', 'favorites_empty' ), 'default' );
 
 echo "<ul>";
 if ($favorite_post_ids):
@@ -30,7 +31,7 @@ if ($favorite_post_ids):
     }
 else:
     echo "<li>";
-    echo "Your favorites will be here.";
+    echo "$favorites_empty";
     echo "</li>";
 endif;
 echo "</ul>";

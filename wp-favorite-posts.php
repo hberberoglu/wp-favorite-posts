@@ -3,8 +3,8 @@
 Plugin Name: WP Favorite Posts
 Plugin URI: https://github.com/vr51/wp-favorite-posts
 Description: Let users add posts to personal favorite lists. Registered users can keep lists permanently. Unregistered users can keep lists for their session lifetime. Display the buttons automatically above or below posts, or add manually. Show the favorites list in a page that includes the shortcode <code>[wp-favorite-posts]</code>. See readme for version details.
-Version: 2.0.0
-Stable tag: 2.0.0
+Version: 2.0.1
+Stable tag: 2.0.1
 Requires at least: 3.5
 Tested up to: 4.6.1
 Author: leehodson
@@ -61,7 +61,8 @@ function wp_favorite_posts() {
         } else if ($_REQUEST['wpfpaction'] == 'remove') {
             wpfp_remove_favorite();
         } else if ($_REQUEST['wpfpaction'] == 'clear') {
-            if (wpfp_clear_favorites()) wpfp_die_or_go(wpfp_get_option('cleared'));
+						$cleared = WPFavoritePostsAdminPageFramework::getOption( 'WPFavoritePosts', array( 'label_options', 'cleared' ), 'default' );
+            if (wpfp_clear_favorites()) wpfp_die_or_go( $cleared );
             else wpfp_die_or_go("ERROR");
         }
     endif;
@@ -86,7 +87,7 @@ function wpfp_add_favorite($post_id = "") {
         // added, now?
         do_action('wpfp_after_add', $post_id);
         if ( $statistics ) wpfp_update_post_meta($post_id, 1);
-        if (wpfp_get_option('added') == 'show remove link') {
+        if ( $added == 'show remove link') {
             $str = wpfp_link(1, "remove", 0, array( 'post_id' => $post_id ) );
             wpfp_die_or_go($str);
         } else {
@@ -393,10 +394,6 @@ function wpfp_get_cookie() {
     if (!isset($_COOKIE[WPFP_COOKIE_KEY])) return;
     return $_COOKIE[WPFP_COOKIE_KEY];
 }
-/* NOTE */
-function wpfp_get_options() {
-   return get_option('wpfp_options');
-}
 
 function wpfp_get_user_id() {
     global $current_user;
@@ -460,10 +457,8 @@ function wpfp_remove_favorite_link($post_id) {
 
 function wpfp_clear_list_link() {
 
-		$clear = WPFavoritePostsAdminPageFramework::getOption( 'WPFavoritePosts', array( 'label_options', 'clear' ), 'default' );
-
     if (wpfp_is_user_can_edit()) {
-        $wpfp_options = wpfp_get_options();
+				$clear = WPFavoritePostsAdminPageFramework::getOption( 'WPFavoritePosts', array( 'label_options', 'clear' ), 'default' );
         echo wpfp_before_link_img();
         echo wpfp_loading_img();
         echo "<a class='wpfp-link' href='?wpfpaction=clear' rel='nofollow'>$clear</a>";
@@ -472,13 +467,7 @@ function wpfp_clear_list_link() {
 
 function wpfp_cookie_warning() {
     if (!is_user_logged_in() && !isset($_GET['user']) ):
-        echo "<p>".wpfp_get_option('cookie_warning')."</p>";
+				$cookieWarning = WPFavoritePostsAdminPageFramework::getOption( 'WPFavoritePosts', array( 'label_options', 'cookie_warning' ), 'default' );
+        echo "<p>$cookieWarning</p>";
     endif;
-}
-
-/* NOTE */
-
-function wpfp_get_option($opt) {
-    $wpfp_options = wpfp_get_options();
-    return htmlspecialchars_decode( stripslashes ( $wpfp_options[$opt] ) );
 }

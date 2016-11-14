@@ -5,7 +5,7 @@ Tags: favorite posts, favorite, favourite, posts, favorites,
 wp-favorite-posts, reading list, post list, post lists, lists
 Requires at least: 3.5
 Tested up to: 4.6.1
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 
 Let users add posts to their personal favorite list. Registered users can keep lists permanently. Unregistered users can keep lists for their session lifetime. Display the buttons automatically above or below posts, or add manually. Show the favorites list in a page that includes the shortcode <code>[wp-favorite-posts]</code>. See readme for version details.
 
@@ -68,6 +68,15 @@ text into content section. This page will contain users favorite posts.
 6. Help and Debug Information
 
 == Changelog ==
+= 2.0.1 (2016-11-14) =
+
+Released by leehodson.
+
+* Enhancement: Made some previously non configurable text labels user editable. See the Labels section of the admin page.
+* Fix: Fixed ajax calls. I had previously added an edit that used 'velocity' if available. This edit broke things so reverted this edit.
+* Enhancement: Other minor changes.
+* Cleanup: Removed some code made redundant by the introduction of Admin Page Framework.
+
 = 2.0.0 (2016-11-13) =
 
 Released by leehodson.

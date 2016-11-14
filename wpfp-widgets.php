@@ -1,4 +1,9 @@
 <?php
+
+function wpfp_get_options() {
+   return get_option('wpfp_options');
+}
+
 function wpfp_widget_init() {
     function wpfp_widget_view($args) {
         extract($args);
@@ -35,13 +40,11 @@ function wpfp_widget_init() {
         </p>
         <?php
 					$statistics = WPFavoritePostsAdminPageFramework::getOption( 'WPFavoritePosts', array( 'advanced_options', 'statistics' ), 'default' );
-        if ( !$statistics ) { ?>
-        <p>
-            You must enable statistics from favorite posts <a href="plugins.php?page=wp_favorite_posts" title="Favorite Posts Configuration">configuration page</a>.
-        </p>
-        <?php } ?>
-        <input type="hidden" name="wpfp-widget-submit" value="1" />
-    <?php
+					$statisticsWarning = WPFavoritePostsAdminPageFramework::getOption( 'WPFavoritePosts', array( 'label_options', 'statistics_warning' ), 'default' );
+        if ( !$statistics ) {
+					echo $statisticsWarning;
+					echo '<input type="hidden" name="wpfp-widget-submit" value="1" />';
+        }
     }
     wp_register_sidebar_widget('wpfp-most_favorited_posts', 'Most Favorited Posts', 'wpfp_widget_view');
     wp_register_widget_control('wpfp-most_favorited_posts', 'Most Favorited Posts', 'wpfp_widget_control' );

@@ -370,7 +370,7 @@ class WPFavoritePosts extends WPFavoritePostsAdminPageFramework {
 								'field_id'	=>	'favorites_empty',
 								'type'			=>	'textarea',
 								'title'			=>	__( 'Favorites are empty text', 'wp-favorite-posts' ),
-								'default'		=>	'No favorites to show. Add some!',
+								'default'		=>	'<p>No favorites to show! Add some.</p>',
 								'rich'		=>	true,
 								'attributes'	=>	array(
 										'rows'		=>	6,
@@ -381,6 +381,7 @@ class WPFavoritePosts extends WPFavoritePostsAdminPageFramework {
 								'field_id'	=>	'rem',
 								'type'			=>	'text',
 								'title'			=>	__( '[remove] link text', 'wp-favorite-posts' ),
+								'description'	=>	'The text shown next to a favorited post to indicate the item can be removed from the favorites list.',
 								'default'		=>	'remove',
 								'attributes'	=>	array(
 										'size'		=>	60,
@@ -390,7 +391,18 @@ class WPFavoritePosts extends WPFavoritePostsAdminPageFramework {
 								'field_id'	=>	'cookie_warning',
 								'type'			=>	'textarea',
 								'title'			=>	__( 'Favorites saved to cookies text', 'wp-favorite-posts' ),
-								'default'		=>	'Your favorite posts saved to your browsers cookies. If you clear cookies also favorite posts will be deleted.',
+								'default'		=>	'<p>Your favorite posts have been saved to your browsers cookies. If you clear cookies your list of favorite posts will be deleted also.<p>',
+								'rich'		=>	true,
+								'attributes'	=>	array(
+										'rows'		=>	6,
+										'cols'		=>	60,
+								),
+						),
+						array(
+								'field_id'	=>	'statistics_warning',
+								'type'			=>	'textarea',
+								'title'			=>	__( 'Statistics disabled text', 'wp-favorite-posts' ),
+								'default'		=>	'<p>You must enable statistics from favorite posts <a href="plugins.php?page=wp_favorite_posts" title="Favorite Posts Configuration">configuration page</a>.</p>',
 								'rich'		=>	true,
 								'attributes'	=>	array(
 										'rows'		=>	6,
@@ -401,7 +413,7 @@ class WPFavoritePosts extends WPFavoritePostsAdminPageFramework {
 								'field_id'	=>	'text_only_registered',
 								'type'			=>	'textarea',
 								'title'			=>	__( 'Registered users only text.', 'wp-favorite-posts' ),
-								'default'		=>	'Only registered users can favorite! Please register then create a favorites list.',
+								'default'		=>	'<p>Only registered users can create favorite lists. Please register then create a favorites list.</p>',
 								'rich'		=>	true,
 								'attributes'	=>	array(
 										'rows'		=>	6,
@@ -438,7 +450,7 @@ class WPFavoritePosts extends WPFavoritePostsAdminPageFramework {
 								'type'			=>	'checkbox',
 								'title'			=>	__( 'Disable the plugin\'s JS file', 'wp-favorite-posts' ),
 								'label'			=>	__( 'Disable', 'wp-favorite-posts' ),
-								'description'	=>	__( 'Select this option to stop the plugin loading its own JS file. Could help to resolve JS conflicts.', 'wp-favorite-posts' ),
+								'description'	=>	__( 'Select this option to stop the plugin loading its JS file. Could help to resolve JS conflicts. Disables ajax button text updates.', 'wp-favorite-posts' ),
 								'default'		=>	false,
 						),
 						array(
