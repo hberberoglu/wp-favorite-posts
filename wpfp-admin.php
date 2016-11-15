@@ -143,7 +143,7 @@ class WPFavoritePosts extends WPFavoritePostsAdminPageFramework {
 								'field_id'	=>	'autoshow',
 								'type'			=>	'select',
 								'title'			=>	__( 'Show WP Favorite Posts buttons', 'wp-favorite-posts' ),
-								'description'	=>	__( 'Automatically show buttons before or after post content, or add the buttons manually to page output with <strong>&lt;?php wpfp_link() ?&gt;</strong>', 'wp-favorite-posts' ),
+								'description'	=>	__( 'Automatically show buttons before or after post content, or add the buttons manually per page or post with the shortcode with <strong>[wpfp-link]</strong>', 'wp-favorite-posts' ),
 								'label'			=>	array(
 										'before'	=>	__( 'Before content', 'wp-favorite-posts' ),
 										'after'		=>	__( 'After content', 'wp-favorite-posts' ),
@@ -230,7 +230,7 @@ class WPFavoritePosts extends WPFavoritePostsAdminPageFramework {
 								'field_id'	=>	'thumbnail_alignment',
 								'type'			=>	'select',
 								'title'			=>	__( 'Thumbnail alignment relative to post title', 'wp-favorite-posts' ),
-								'description'	=>	__( 'Thumbnail alignment uses the default WordPress CSS classes for images. Select \'Natural\' to apply no CSS alignment class.', 'wp-favorite-posts' ),
+								'description'	=>	__( 'Thumbnail alignment uses the default WordPress image CSS classes. Select \'Natural\' to apply no CSS alignment class.', 'wp-favorite-posts' ),
 								'label'			=>	array(
 										'left'	=>	__( 'Left', 'wp-favorite-posts' ),
 										'right'		=>	__( 'Right', 'wp-favorite-posts' ),
@@ -313,7 +313,7 @@ class WPFavoritePosts extends WPFavoritePostsAdminPageFramework {
 														'type'			=>	'checkbox',
 														'title'			=>	__( 'Show remove link?', 'wp-favorite-posts' ),
 														'label'			=>	__( 'Enable', 'wp-favorite-posts' ),
-														'default'		=>	false,
+														'default'		=>	true,
 												),
 								),
 						),
@@ -344,7 +344,7 @@ class WPFavoritePosts extends WPFavoritePostsAdminPageFramework {
 														'type'			=>	'checkbox',
 														'title'			=>	__( 'Show add link?', 'wp-favorite-posts' ),
 														'label'			=>	__( 'Enable', 'wp-favorite-posts' ),
-														'default'		=>	false,
+														'default'		=>	true,
 												),
 								),
 						),
@@ -352,7 +352,7 @@ class WPFavoritePosts extends WPFavoritePostsAdminPageFramework {
 								'field_id'	=>	'clear',
 								'type'			=>	'text',
 								'title'			=>	__( 'Clear all favorites link text', 'wp-favorite-posts' ),
-								'default'		=>	'Clear all favorites?',
+								'default'		=>	'<p>Clear all favorites?</p>',
 								'attributes'	=>	array(
 										'size'		=>	60,
 								),
@@ -361,7 +361,7 @@ class WPFavoritePosts extends WPFavoritePostsAdminPageFramework {
 								'field_id'	=>	'cleared',
 								'type'			=>	'text',
 								'title'			=>	__( 'Favorites cleared text', 'wp-favorite-posts' ),
-								'default'		=>	'Favorites cleared!',
+								'default'		=>	'<p>Favorites cleared!</p>',
 								'attributes'	=>	array(
 										'size'		=>	60,
 								),
@@ -502,7 +502,7 @@ class WPFavoritePosts extends WPFavoritePostsAdminPageFramework {
 								'tab_slug'		=>	'help',
 								'capability'	=>	'update_core',
 								'title'				=>	__( 'Help and Debug Information', 'wp-favorite-posts' ),
-								'description'	=>	__( '<p>Help links, useful information and system debug information. This is only visible to site administrators.</p>', 'wp-favorite-posts' ),
+								'description'	=>	__( '<p>Help links, useful information and system debug information. This is only visible to site administrators.</p><ol><li>Decide whether to show the Add to Favorites buttons automatically or manually. If manually you can use the shortcode <strong>[wpfp-link]</strong>.</li>Create a page and add the shortcode <strong>[wp-favorite-posts]</strong> to display the visitor his favorite posts.<li>You can show a list of all time favorite posts as collected over time by using the shortcode <strong>[wpfp-most number=\'5\']</strong></li><li>Visit <a href="https://github.com/vr51/wp-favorite-posts/" target="_blank">https://github.com/vr51/wp-favorite-posts</a> For help and support.</li><li>Send donations with <a href="https://paypal.me/vr51/" target="_blank">PayPal</a></li></ol>', 'wp-favorite-posts' ),
 								'order'				=>	'1',
 						)
 				);

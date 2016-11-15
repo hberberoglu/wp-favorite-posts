@@ -5,7 +5,7 @@ Tags: favorite posts, favorite, favourite, posts, favorites,
 wp-favorite-posts, reading list, post list, post lists, lists
 Requires at least: 3.5
 Tested up to: 4.6.1
-Stable tag: 2.0.1
+Stable tag: 2.1.0
 
 Let users add posts to their personal favorite list. Registered users can keep lists permanently. Unregistered users can keep lists for their session lifetime. Display the buttons automatically above or below posts, or add manually. Show the favorites list in a page that includes the shortcode <code>[wp-favorite-posts]</code>. See readme for version details.
 
@@ -23,13 +23,23 @@ Let users add posts to their personal favorite list. Registered users can keep l
 
 <h2>How to Display a Users Most Favorite Post List</h2>
 
-The list is visible to the individual user only. Lists can not be shared with other users currently.
+Use the plugin settings under <strong>Settings > WP Favorite Posts</strong> to configure where the favorite buttons display and how they display or use the shortcode [wpfp-link] to add the buttons manually in a page or post.
 
-Use the plugin settings under Settings > WP Favorite Posts to configure where the favorite buttons display and how they display.
+List a users favorite posts using the shortcode [wp-favorite-posts] in a page. There is a widget for this too.
 
-The Add to Favorite buttons can be displayed automatically either above or below posts. Otherwise use add the buttons manually using the code <?php wpfp_list_most_favorited(5); ?>. The number determines the number of items to display per page of the list of favorites.
+List the most favorite posts ever (statistics need to be enabled) using the shortcode [wpfp-most number='5'] where number='5' is the number of favorite posts to show.
 
-Text labels can be configured in the plugin settings. Use a translation file if you prefer.
+Text labels can be configured in the plugin settings or you can use a translation file if you prefer.
+
+<h2>Developers</h2>
+
+Add the favorite post buttons and lists to template files using the following functions.
+
+Use `<?php if (function_exists('wpfp_link')) { wpfp_link(); } ?>` to manually add the favorite post buttons to post and page templates.
+
+Use `<?php if (function_exists('wpfp_list_most_favorited')) {wpfp_list_most_favorited(5); } ?>` in your theme template to display the most favorited posts ever. The number determines the number of items displayed.
+
+Use the code `<?php if (function_exists('wpfp_list_favorite_posts()')) { wpfp_list_favorite_posts()(); } ?>`
 
 <h2>History of This Version</h2>
 
@@ -50,14 +60,8 @@ Please submit pull requests for the original code to https://github.com/hberbero
 
 1. Unzip into your `/wp-content/plugins/` directory.
 1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php if (function_exists('wpfp_link')) { wpfp_link(); } ?>` in your
-single.php or page.php template file. Then favorite this post link will appear in all posts.
-1. OR if you DO NOT want the favorite link to appear in every post/page, DO NOT
-use the code above. Just type in [wpfp-link] into the selected post/page
-content and it will embed the print link into that post/page only.
-1. Create a page e.g. "Your Favorites" and insert `{{wp-favorite-posts}}`
-text into content section. This page will contain users favorite posts.
-1. That's it :)
+1. Visit Settings > WP Favorite Posts to configure plugin.
+1. Visit Settings > WP Favorite Posts to read help information.
 
 == Screenshots ==
 1. General Settings
@@ -68,6 +72,20 @@ text into content section. This page will contain users favorite posts.
 6. Help and Debug Information
 
 == Changelog ==
+
+= 2.1.0 (2016-11-15) =
+
+*	Enhancement: Moved templates into /templates directory.
+* Enhancement: Moved Most Favorite Posts list into its own template ()
+* Enhancement: Converted WP Favorite Posts widget to Admin Page Framework.
+* Enhancement: Added ajax action to widget buttons.
+* Feature: WP Favorite Posts widget has new options to configure.
+* Feature: Added new shortcode for listing most favorited posts of all time: [wpfp-most number='5']
+*	Fix: Fixed bug in the widget that prevented proper functioning of 'remove favorite'.
+* Fix: Fixed display of 'most favorited posts' list (shows total favorites for posts as opposed to favorites of the current visitor).
+* Fix: Fixed another display error in the user's 'Favorite Posts' list.
+* Fixes: Several other unrecorded fixes made along the way.
+
 = 2.0.1 (2016-11-14) =
 
 Released by leehodson.
@@ -92,6 +110,7 @@ Released by leehodson.
 
 * Feature: Include thumbnails alongside post title (leehodson).
 * Fix: Changed plugin directory variable and removed hardcoded URLs & directory paths.
+*	Fix: Fixed shortcode display bug that forced the shortcode output out of its container under some circumstances.
 * Updates: Introduced various other changes to the code. Some changes came from edits made in other GitHub listed code forks.
 
 = 1.6.6 (2016-03-16) =

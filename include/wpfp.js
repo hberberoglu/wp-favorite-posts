@@ -8,6 +8,17 @@ jQuery(document).ready( function($) {
 				}
         return false;
     });
+		
+		$('.wpfp-widget-ul').on('click', '.wpfp-link', function() {
+			var dhis = $(this);
+			wpfp_do_js( dhis, 1 );
+			// For favorite post listing page
+			if (dhis.hasClass('remove-parent')) {
+				dhis.parent("li").fadeOut();
+			}
+			return false;
+		});
+		
 });
 
 function wpfp_do_js( dhis, doAjax ) {

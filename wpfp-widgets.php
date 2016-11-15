@@ -1,102 +1,145 @@
 <?php
 
-function wpfp_get_options() {
-   return get_option('wpfp_options');
+// Include Admin Page Framework library.
+include( dirname( __FILE__ ) . '/include/library/admin-page-framework/admin-page-framework.php' );
+
+if ( ! class_exists( 'WPFavoritePostsAdminPageFramework_Widget' ) ) {
+
+    return;
+
 }
 
-function wpfp_widget_init() {
-    function wpfp_widget_view($args) {
-        extract($args);
-        $options = wpfp_get_options();
-        if (isset($options['widget_limit'])) {
-            $limit = $options['widget_limit'];
-        }
-        $title = empty($options['widget_title']) ? 'Most Favorited Posts' : $options['widget_title'];
-        echo $before_widget;
-        echo $before_title . $title . $after_title;
-        wpfp_list_most_favorited($limit);
-        echo $after_widget;
-    }
+// WP Favorite Posts Widget
 
-    function wpfp_widget_control() {
-        $options = wpfp_get_options();
-        if (isset($_POST["wpfp-widget-submit"])):
-            $options['widget_title'] = strip_tags(stripslashes($_POST['wpfp-title']));
-            $options['widget_limit'] = strip_tags(stripslashes($_POST['wpfp-limit']));
-            update_option("wpfp_options", $options);
-        endif;
-        $title = $options['widget_title'];
-        $limit = $options['widget_limit'];
-    ?>
-        <p>
-            <label for="wpfp-title">
-                <?php _e('Title:'); ?> <input type="text" value="<?php echo $title; ?>" class="widefat" id="wpfp-title" name="wpfp-title" />
-            </label>
-        </p>
-        <p>
-            <label for="wpfp-limit">
-                <?php _e('Number of posts to show:'); ?> <input type="text" value="<?php echo $limit; ?>" style="width: 28px; text-align:center;" id="wpfp-limit" name="wpfp-limit" />
-            </label>
-        </p>
-        <?php
-					$statistics = WPFavoritePostsAdminPageFramework::getOption( 'WPFavoritePosts', array( 'advanced_options', 'statistics' ), 'default' );
-					$statisticsWarning = WPFavoritePostsAdminPageFramework::getOption( 'WPFavoritePosts', array( 'label_options', 'statistics_warning' ), 'default' );
-        if ( !$statistics ) {
-					echo $statisticsWarning;
-					echo '<input type="hidden" name="wpfp-widget-submit" value="1" />';
-        }
-    }
-    wp_register_sidebar_widget('wpfp-most_favorited_posts', 'Most Favorited Posts', 'wpfp_widget_view');
-    wp_register_widget_control('wpfp-most_favorited_posts', 'Most Favorited Posts', 'wpfp_widget_control' );
+class WPFavoritePostsWidget extends WPFavoritePostsAdminPageFramework_Widget {
 
-    //*** users favorites widget ***//
-    function wpfp_users_favorites_widget_view($args) {
-        extract($args);
-        $options = wpfp_get_options();
-        if (isset($options['uf_widget_limit'])) {
-            $limit = $options['uf_widget_limit'];
-        }
-        $title = empty($options['uf_widget_title']) ? 'Users Favorites' : $options['uf_widget_title'];
-        echo $before_widget;
-        echo $before_title
-             . $title
-             . $after_title;
-        $favorite_post_ids = wpfp_get_users_favorites();
+		public function load( $oAdminWidget ) {
 
-		$limit = $options['uf_widget_limit'];
-        if (@file_exists(TEMPLATEPATH.'/wpfp-your-favs-widget.php')):
-            include(TEMPLATEPATH.'/wpfp-your-favs-widget.php');
-        else:
-            include("wpfp-your-favs-widget.php");
-        endif;
-        echo $after_widget;
-    }
+				$this->addSettingFields(
+						array(
+								'field_id'			=>	'title',
+								'type'					=>	'text',
+								'title'					=>	'Title',
+								'default'				=>	'Your Favorite Posts',
+						),
+						array(
+								'field_id'			=>	'number',
+								'type'					=>	'number',
+								'title'					=>	'Number',
+								'description'		=>	'Number of posts to display.',
+								'default'				=>	'5',
+						),
+						array(
+								'field_id'	=>	'thumbnail_show',
+								'type'			=>	'checkbox',
+								'title'			=>	__( 'Show feature image thumbnail?', 'wp-favorite-posts' ),
+								'label'			=>	__( 'Enable', 'wp-favorite-posts' ),
+								'description'	=>	__( 'Select this option to show the feature image of a post next to the post\'s title in the favorite list table.', 'wp-favorite-posts' ),
+								'default'		=>	true,
+						),
+						array(
+								'field_id'	=>	'thumbnail_alignment',
+								'type'			=>	'select',
+								'title'			=>	__( 'Thumbnail alignment relative to post title', 'wp-favorite-posts' ),
+								'description'	=>	__( 'Thumbnail alignment uses the default WordPress image CSS classes. Select \'Natural\' to apply no CSS alignment class.', 'wp-favorite-posts' ),
+								'label'			=>	array(
+										'left'	=>	__( 'Left', 'wp-favorite-posts' ),
+										'right'		=>	__( 'Right', 'wp-favorite-posts' ),
+										'center'		=>	__( 'Center', 'wp-favorite-posts' ),
+										'none'	=>	__( 'None', 'wp-favorite-posts' ),
+										'natural'	=>	__( 'Natural', 'wp-favorite-posts' ),
+								),
+								'default'		=>	'none',
+						),
+						array(
+								'field_id'	=>	'thumbnail_default',
+								'type'			=>	'image',
+								'title'			=>	__( 'Add default image', 'wp-favorite-posts' ),
+								'description'	=>	__( 'This image displays alongside posts that have no set feature image.', 'wp-favorite-posts' ),
+								'attributes'	=>	array(
+										'style'	=>	'max-width: 150px;',
+								)
+						),
+						array(
+								'field_id'	=> 'thumbnail_width',
+								'type'			=> 'number',
+								'title'			=>	__( 'Thumbnail width (pixels)', 'wp-favorite-posts' ),
+								'description'	=>	__( 'Set a preferred width for the thumbnail.' ),
+								'label_min_width'	=> '',
+								'default'		=> 50,
+								'attributes'	=> array(
+										'style'	 => 'width: 60px',
+								),
+						),
+						array(
+								'field_id'	=> 'thumbnail_height',
+								'type'			=> 'number',
+								'title'			=>	__( 'Thumbnail height (pixels)', 'wp-favorite-posts' ),
+								'description'	=>	__( 'Set a preferred height for the thumbnail.' ),
+								'label_min_width'	=> '',
+								'default'		=> 50,
+								'attributes'	=> array(
+										'style'	 => 'width: 60px',
+								),
+						),
+						array(
+								'field_id'	=>	'clear',
+								'type'			=>	'text',
+								'title'			=>	__( 'Clear all favorites link text', 'wp-favorite-posts' ),
+								'default'		=>	'Clear all favorites?',
+						),
+						array(
+								'field_id'	=>	'cleared',
+								'type'			=>	'text',
+								'title'			=>	__( 'Favorites cleared text', 'wp-favorite-posts' ),
+								'default'		=>	'Favorites cleared!',
+						),
+						array(
+								'field_id'	=>	'favorites_empty',
+								'type'			=>	'textarea',
+								'title'			=>	__( 'Favorites are empty text', 'wp-favorite-posts' ),
+								'default'		=>	'There are no favorites to show! Add some.',
+								'attributes'	=>	array(
+										'rows'		=>	6,
+										'style'		=>	'100%',
+								),
+						),
+						array(
+								'field_id'	=>	'cookie_warning',
+								'type'			=>	'textarea',
+								'title'			=>	__( 'Favorites saved to cookies text', 'wp-favorite-posts' ),
+								'default'		=>	'Your favorite posts have been saved to your browsers cookies. If you clear cookies your list of favorite posts will be deleted also.',
+								'attributes'	=>	array(
+										'rows'		=>	6,
+										'style'		=>	'100%',
+								)
+						)
+				);
 
-    function wpfp_users_favorites_widget_control() {
-        $options = wpfp_get_options();
-        if (isset($_POST["wpfp-uf-widget-submit"])):
-            $options['uf_widget_title'] = strip_tags(stripslashes($_POST['wpfp-uf-title']));
-            $options['uf_widget_limit'] = strip_tags(stripslashes($_POST['wpfp-uf-limit']));
-            update_option("wpfp_options", $options);
-        endif;
-        $uf_title = $options['uf_widget_title'];
-        $uf_limit = $options['uf_widget_limit'];
-    ?>
-        <p>
-            <label for="wpfp-uf-title">
-                <?php _e('Title:'); ?> <input type="text" value="<?php echo $uf_title; ?>" class="widefat" id="wpfp-uf-title" name="wpfp-uf-title" />
-            </label>
-        </p>
-        <p>
-            <label for="wpfp-uf-limit">
-                <?php _e('Number of posts to show:'); ?> <input type="text" value="<?php echo $uf_limit; ?>" style="width: 28px; text-align:center;" id="wpfp-uf-limit" name="wpfp-uf-limit" />
-            </label>
-        </p>
+		}
 
-        <input type="hidden" name="wpfp-uf-widget-submit" value="1" />
-    <?php
-    }
-    wp_register_sidebar_widget('wpfp-users_favorites','User\'s Favorites', 'wpfp_users_favorites_widget_view');
-    wp_register_widget_control('wpfp-users_favorites','User\'s Favorites', 'wpfp_users_favorites_widget_control' );
+		public function content( $sContent, $aArguments, $aFormData ) {
+
+			ob_start();
+				if ( @file_exists(TEMPLATEPATH.'/wpfp-widget-template.php') || @file_exists(STYLESHEETPATH.'/wpfp-widget-template.php') ):
+						if(@file_exists(TEMPLATEPATH.'/wpfp-widget-template.php')) :
+								include(TEMPLATEPATH.'/wpfp-widget-template.php');
+						else :
+								include(STYLESHEETPATH.'/wpfp-widget-template.php');
+						endif;
+				else:
+						include( realpath(dirname(__FILE__)) . "/templates/wpfp-widget-template.php");
+				endif;
+			$list = ob_get_clean();
+			
+			return $sContent . $list;
+
+		}
+
 }
-add_action('widgets_init', 'wpfp_widget_init');
+new WPFavoritePostsWidget(
+		'WP Favorite Posts',    // widget title
+		array(
+				'description'   => 'Shows a visitors favorite posts.',
+		)
+);
