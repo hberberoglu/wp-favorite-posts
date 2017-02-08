@@ -1,27 +1,18 @@
-------------------
-WP Favorite Posts - ChangeLog
+See http://github.com/vr51/wp-favorite-posts/readme.txt for changelog, or view the GitHub update history.
 
-http://github.com/vr51/wp-favorite-posts/
+# Forked Here Since Version 1.7.1
 
-See readme.txt for changelog or view the GitHub update history.
-
-------------------
-
-For changelog see: http://github.com/vr51/wp-favorite-posts/
-
-# Forked From the Original Code
-
-This is a fork of the original WP Favorite Posts. The original can be found at http://wordpress.org/extend/plugins/wp-favorite-posts/changelog/.
+Versions 1.7.1 and upwards released by leehodson AKA [@VR51]. Version 1.7.1 began as a fork of version 1.6.6 of WP Favorite Posts. The original release can be found at http://wordpress.org/extend/plugins/wp-favorite-posts/changelog/.
 
 This fork is maintained by [@vr51] AKA Lee Hodson.
 
 The objectives of this fork are:
 
 	a) To convert the admin pages to Admin Page Framework and thereby improve scope for future enhancements.
-	b) Merge edits made in other forks of WP Favorite Posts into this version (where those edits improve the code).
+	b) Merge edits made in other forks of WP Favorite Posts into this version (where those edits improve code/features).
 	c) Add new features.
 
-For help with Admin Page Framework (if you create your own fork or want to add your own features, that is), see
+For help with Admin Page Framework, if you create your own fork or want to add your own features, that is, see
 
 	a) http://admin-page-framework.michaeluno.jp/en/v3/package-AdminPageFramework.Common.Form.FieldType.html
 	b) http://admin-page-framework.michaeluno.jp/

@@ -73,7 +73,21 @@ Please submit pull requests for the original code to https://github.com/hberbero
 
 == Changelog ==
 
+= Coming up...
+
+Import old plugin settings from prior to 1.7.1, if exist (automatic) and new not already set.
+
+Stats admin dashboard widget.
+
+Thumbnail image montage (if thumb used)
+
+	Make file name on click of View Favourite's button.
+	Insert file name as feature image for favourite's page (requires ability to select page used for favourites).
+	Make feature image (PHP). Store image in Feature Montage Gallery
+
 = 2.1.0 (2016-11-15) =
+
+Released by leehodson
 
 *	Enhancement: Moved templates into /templates directory.
 * Enhancement: Moved Most Favorite Posts list into its own template ()
