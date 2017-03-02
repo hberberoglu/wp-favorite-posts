@@ -13,7 +13,7 @@ if ( ! class_exists( 'WPFavoritePostsAdminPageFramework_Widget' ) ) {
 
 class WPFavoritePostsWidget extends WPFavoritePostsAdminPageFramework_Widget {
 
-		public function load( $oAdminWidget ) {
+		public function load( $oAdminWidget = null ) {
 
 				$this->addSettingFields(
 						array(

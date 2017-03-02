@@ -60,6 +60,10 @@ class WPFavoritePosts extends WPFavoritePostsAdminPageFramework {
 								'tab_slug'      => 'labels',    // tab slug
 						),
 						array(
+								'title'         => __( 'Dashboard', 'wp-favorite-posts'),    // tab title
+								'tab_slug'      => 'dashboard',    // tab slug
+						),
+						array(
 								'title'         => __( 'Advanced', 'wp-favorite-posts'),    // tab title
 								'tab_slug'      => 'advanced',    // tab slug
 						),
@@ -428,6 +432,95 @@ class WPFavoritePosts extends WPFavoritePostsAdminPageFramework {
 								'label'			=>	__( 'Save', 'wp-favorite-posts' ),
 						) 
 
+				);
+				
+				
+				/* Dashboard Widget */
+
+				$this->addSettingSections(
+						array(
+								'section_id'	=>	'dashboard_options',
+								'page_slug'		=>	'wp_favorite_posts',
+								'tab_slug'		=>	'dashboard',
+								'title'				=>	__( 'Dashboard Options', 'wp-favorite-posts' ),
+								'description'	=>	__( '<p>Configure the display of the dashboard widget.</p>', 'wp-favorite-posts' ),
+								'order'				=>	'1',
+						)
+				);
+
+				$this->addSettingFields(
+						'dashboard_options',	// target section ID
+						array(
+								'field_id'	=> 'favorites_show',
+								'type'			=> 'number',
+								'title'			=>	__( 'Favorites to show', 'wp-favorite-posts' ),
+								'description'	=>	__( 'Number of favorited post links to show.' ),
+								'label_min_width'	=> '',
+								'default'		=> 20,
+								'attributes'	=> array(
+										'style'	 => 'width: 80px',
+								),
+						),
+						array(
+								'field_id'	=>	'thumbnail_show',
+								'type'			=>	'checkbox',
+								'title'			=>	__( 'Show feature image thumbnail?', 'wp-favorite-posts' ),
+								'label'			=>	__( 'Enable', 'wp-favorite-posts' ),
+								'description'	=>	__( 'Select this option to show the feature image of a post next to the post\'s title in the favorite list table.', 'wp-favorite-posts' ),
+								'default'		=>	true,
+						),
+						array(
+								'field_id'	=>	'thumbnail_default',
+								'type'			=>	'image',
+								'title'			=>	__( 'Add default image', 'wp-favorite-posts' ),
+								'description'	=>	__( 'This image displays alongside posts that have no set feature image.', 'wp-favorite-posts' ),
+								'attributes'	=>	array(
+										'style'	=>	'max-width: 150px;',
+								)
+						),
+						array(
+								'field_id'	=>	'thumbnail_alignment',
+								'type'			=>	'select',
+								'title'			=>	__( 'Thumbnail alignment relative to post title', 'wp-favorite-posts' ),
+								'description'	=>	__( 'Thumbnail alignment uses the default WordPress image CSS classes. Select \'Natural\' to apply no CSS alignment class.', 'wp-favorite-posts' ),
+								'label'			=>	array(
+										'left'	=>	__( 'Left', 'wp-favorite-posts' ),
+										'right'		=>	__( 'Right', 'wp-favorite-posts' ),
+										'center'		=>	__( 'Center', 'wp-favorite-posts' ),
+										'none'	=>	__( 'None', 'wp-favorite-posts' ),
+										'natural'	=>	__( 'Natural', 'wp-favorite-posts' ),
+								),
+								'default'		=>	'none',
+						),
+						array(
+								'field_id'	=> 'thumbnail_width',
+								'type'			=> 'number',
+								'title'			=>	__( 'Thumbnail width (pixels)', 'wp-favorite-posts' ),
+								'description'	=>	__( 'Set a preferred width for the thumbnail.' ),
+								'label_min_width'	=> '',
+								'default'		=> 25,
+								'attributes'	=> array(
+										'style'	 => 'width: 80px',
+								),
+						),
+						array(
+								'field_id'	=> 'thumbnail_height',
+								'type'			=> 'number',
+								'title'			=>	__( 'Thumbnail height (pixels)', 'wp-favorite-posts' ),
+								'description'	=>	__( 'Set a preferred height for the thumbnail.' ),
+								'label_min_width'	=> '',
+								'default'		=> 25,
+								'attributes'	=> array(
+										'style'	 => 'width: 80px',
+								),
+						),
+						array(
+								'field_id'	=>	'submit_button',
+								'type'			=>	'submit',
+								'title'			=>	__( 'Save Settings', 'wp-favorite-posts' ),
+								'description'	=>	__( 'Save before you switch tabs.', 'wp-favorite-posts' ),
+								'label'			=>	__( 'Save', 'wp-favorite-posts' ),
+						) 
 				);
 				
 				/* Advanced */

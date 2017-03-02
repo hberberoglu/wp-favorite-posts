@@ -1,5 +1,7 @@
 See http://github.com/vr51/wp-favorite-posts/readme.txt for changelog, or view the GitHub update history.
 
+Current Version: 2.1.1
+
 # Forked Here Since Version 1.7.1
 
 Versions 1.7.1 and upwards released by leehodson AKA [@VR51]. Version 1.7.1 began as a fork of version 1.6.6 of WP Favorite Posts. The original release can be found at http://wordpress.org/extend/plugins/wp-favorite-posts/changelog/.

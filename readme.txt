@@ -4,14 +4,14 @@ Donate link: https://www.paypal.me/vr51
 Tags: favorite posts, favorite, favourite, posts, favorites,
 wp-favorite-posts, reading list, post list, post lists, lists
 Requires at least: 3.5
-Tested up to: 4.6.1
-Stable tag: 2.1.0
+Tested up to: 4.7.3
+Stable tag: 2.1.1
 
 Let users add posts to their personal favorite list. Registered users can keep lists permanently. Unregistered users can keep lists for their session lifetime. Display the buttons automatically above or below posts, or add manually. Show the favorites list in a page that includes the shortcode <code>[wp-favorite-posts]</code>. See readme for version details.
 
 == Description ==
 
-Let users add posts to their personal favorite list. Registered users can keep lists permanently. Unregistered users can keep lists for their session lifetime. Display the buttons automatically above or below posts, or add manually. Show the favorites list in a page that includes the shortcode <code>[wp-favorite-posts]</code>. See readme for version details.
+Let users add posts to their personal favorite list. Registered users can keep lists permanently. Unregistered users can keep lists for their session lifetime. Display the 'favorite' buttons automatically above or below posts, or add the buttons manually. Show the favorites list in a page that includes the shortcode <code>[wp-favorite-posts]</code> or display favorites in a sidebar widget. View total post favorite stats in admin dashboard.
 
 - If a user is logged in their favorites will be saved to the WordPress database in their user profile.
 - If user is not logged in their data will saved to their active session cookie.
@@ -19,7 +19,7 @@ Let users add posts to their personal favorite list. Registered users can keep l
 - Select whether favorite lists can be saved by registered users only.
 - Display a users favorite list in a 'favorites' page using shortcode [wp-favorite-posts].
 - Use the "Most Favorited Posts" widget to display favorite lists in a sidebar.
-- Create your own display template if you desire.
+- Create your own display template to customize the display of the shortcode or any of the widgets if you desire.
 
 <h2>How to Display a Users Most Favorite Post List</h2>
 
@@ -37,9 +37,16 @@ Add the favorite post buttons and lists to template files using the following fu
 
 Use `<?php if (function_exists('wpfp_link')) { wpfp_link(); } ?>` to manually add the favorite post buttons to post and page templates.
 
-Use `<?php if (function_exists('wpfp_list_most_favorited')) {wpfp_list_most_favorited(5); } ?>` in your theme template to display the most favorited posts ever. The number determines the number of items displayed.
+Use `<?php if (function_exists('wpfp_list_most_favorited')) {wpfp_list_most_favorited( $number ); } ?>` in your theme template to display the most favorited posts ever. The number determines the number of items displayed.
 
 Use the code `<?php if (function_exists('wpfp_list_favorite_posts()')) { wpfp_list_favorite_posts()(); } ?>`
+
+Place custom display templates into your theme or child theme's root directory. Existing templates are in wp-favorite-posts/templates/. They are:
+
+- wpfp-page-template.php
+- wpfp-most-favorited-template.php
+- wpfp-widget-template.php
+- wpfp-most-favorited-dashboard-widget-template.php
 
 <h2>History of This Version</h2>
 
@@ -84,6 +91,11 @@ Thumbnail image montage (if thumb used)
 	Make file name on click of View Favourite's button.
 	Insert file name as feature image for favourite's page (requires ability to select page used for favourites).
 	Make feature image (PHP). Store image in Feature Montage Gallery
+	
+= 2.1.1 (2017-03-02) =
+
+* New: Added dashboard stats widget
+* Updated: Updated Admin Page Framework files to latest release.
 
 = 2.1.0 (2016-11-15) =
 

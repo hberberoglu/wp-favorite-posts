@@ -2,11 +2,11 @@
 /*
 Plugin Name: WP Favorite Posts
 Plugin URI: https://github.com/vr51/wp-favorite-posts
-Description: Let users add posts to personal favorite lists. Registered users can keep lists permanently. Unregistered users can keep lists for their session lifetime. Display the buttons automatically above or below posts, or add manually. Show the favorites list in a page that includes the shortcode <code>[wp-favorite-posts]</code>. See readme for version details.
-Version: 2.1.0
-Stable tag: 2.1.0
+Description: Let users add posts to personal favorite lists. Registered users can keep lists permanently. Unregistered users can keep lists for their session lifetime. Display favorite buttons automatically above or below posts, or add manually. Show the favorites list in a page that includes the shortcode <code>[wp-favorite-posts]</code>. View total stats in dashboard widget. See readme for version details.
+Version: 2.1.1
+Stable tag: 2.1.1
 Requires at least: 3.5
-Tested up to: 4.6.1
+Tested up to: 4.7.3
 Author: leehodson
 Contributors: Huseyin Berberoglu,leehodson
 Author URI: https://github.com/vr51
@@ -255,17 +255,30 @@ add_shortcode('wp-favorite-posts', 'wpfp_list_users_most_favorite_shortcode');
 // Display THE most favorited posts of all time.
 function wpfp_list_most_favorited($limit=5) {
 
-	if ( @file_exists(TEMPLATEPATH.'/wpfp-most-favorited-template.php') || @file_exists(STYLESHEETPATH.'/wpfp-most-favorited-template.php') ) {
-			if(@file_exists(TEMPLATEPATH.'/wpfp-most-favorited-template.php')) {
-					include(TEMPLATEPATH.'/wpfp-most-favorited-template.php');
+	if ( !is_admin() ) {
+			if ( @file_exists(TEMPLATEPATH.'/wpfp-most-favorited-template.php') || @file_exists(STYLESHEETPATH.'/wpfp-most-favorited-template.php') ) {
+					if(@file_exists(TEMPLATEPATH.'/wpfp-most-favorited-template.php')) {
+							include(TEMPLATEPATH.'/wpfp-most-favorited-template.php');
+					} else {
+							include(STYLESHEETPATH.'/wpfp-most-favorited-template.php');
+					}
 			} else {
-					include(STYLESHEETPATH.'/wpfp-most-favorited-template.php');
+					include( realpath(dirname(__FILE__)) . "/templates/wpfp-most-favorited-template.php" );
 			}
-	} else {
-			include( realpath(dirname(__FILE__)) . "/templates/wpfp-most-favorited-template.php" );
-	}
+		} else {
+			if ( @file_exists(TEMPLATEPATH.'/wpfp-most-favorited-dashboard-widget-template.php') || @file_exists(STYLESHEETPATH.'/wpfp-most-favorited-dashboard-widget-template.php') ) {
+					if(@file_exists(TEMPLATEPATH.'/wpfp-most-favorited-dashboard-widget-template.php')) {
+							include(TEMPLATEPATH.'/wpfp-most-favorited-dashboard-widget-template.php');
+					} else {
+							include(STYLESHEETPATH.'/wpfp-most-favorited-dashboard-widget-template.php');
+					}
+			} else {
+					include( realpath(dirname(__FILE__)) . "/templates/wpfp-most-favorited-dashboard-widget-template.php" );
+			}
+		}
     
 }
+include_once( realpath(dirname(__FILE__)) . "/wpfp-admin-dashboard-widget.php" );
 
 function wpfp_list_most_favorited_ever_shortcode( $atts ) {
 
