@@ -5,7 +5,7 @@ Tags: favorite posts, favorite, favourite, posts, favorites,
 wp-favorite-posts, reading list, post list, post lists, lists
 Requires at least: 3.5
 Tested up to: 4.7.3
-Stable tag: 2.1.1
+Stable tag: 2.1.2
 
 Let users add posts to their personal favorite list. Registered users can keep lists permanently. Unregistered users can keep lists for their session lifetime. Display the buttons automatically above or below posts, or add manually. Show the favorites list in a page that includes the shortcode <code>[wp-favorite-posts]</code>. See readme for version details.
 
@@ -91,6 +91,10 @@ Thumbnail image montage (if thumb used)
 	Make file name on click of View Favourite's button.
 	Insert file name as feature image for favourite's page (requires ability to select page used for favourites).
 	Make feature image (PHP). Store image in Feature Montage Gallery
+
+= 2.1.1 (2017-03-04) =
+
+* Enhancement: Improved dashboard widget's appearance
 	
 = 2.1.1 (2017-03-02) =
 

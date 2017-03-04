@@ -498,7 +498,7 @@ class WPFavoritePosts extends WPFavoritePostsAdminPageFramework {
 								'title'			=>	__( 'Thumbnail width (pixels)', 'wp-favorite-posts' ),
 								'description'	=>	__( 'Set a preferred width for the thumbnail.' ),
 								'label_min_width'	=> '',
-								'default'		=> 25,
+								'default'		=> 35,
 								'attributes'	=> array(
 										'style'	 => 'width: 80px',
 								),
@@ -509,7 +509,7 @@ class WPFavoritePosts extends WPFavoritePostsAdminPageFramework {
 								'title'			=>	__( 'Thumbnail height (pixels)', 'wp-favorite-posts' ),
 								'description'	=>	__( 'Set a preferred height for the thumbnail.' ),
 								'label_min_width'	=> '',
-								'default'		=> 25,
+								'default'		=> 35,
 								'attributes'	=> array(
 										'style'	 => 'width: 80px',
 								),

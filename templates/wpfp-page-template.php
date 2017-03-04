@@ -55,8 +55,8 @@
 
 			echo '<div class="navigation">';
 					if(function_exists('wp_pagenavi')) { wp_pagenavi(); } else {
-						echo '<div class="alignleft">' . next_posts_link( __( '&larr; Previous Entries', 'buddypress' ) ) . '</div>';
-						echo '<div class="alignright">' . previous_posts_link( __( 'Next Entries &rarr;', 'buddypress' ) ) . '</div>';
+						echo '<div class="alignleft">' . next_posts_link( __( '&larr; Previous Entries', 'wp-favorite-posts' ) ) . '</div>';
+						echo '<div class="alignright">' . previous_posts_link( __( 'Next Entries &rarr;', 'wp-favorite-posts' ) ) . '</div>';
 					}
 			echo '</div>';
 

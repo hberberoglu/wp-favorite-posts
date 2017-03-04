@@ -3,8 +3,8 @@
 Plugin Name: WP Favorite Posts
 Plugin URI: https://github.com/vr51/wp-favorite-posts
 Description: Let users add posts to personal favorite lists. Registered users can keep lists permanently. Unregistered users can keep lists for their session lifetime. Display favorite buttons automatically above or below posts, or add manually. Show the favorites list in a page that includes the shortcode <code>[wp-favorite-posts]</code>. View total stats in dashboard widget. See readme for version details.
-Version: 2.1.1
-Stable tag: 2.1.1
+Version: 2.1.2
+Stable tag: 2.1.2
 Requires at least: 3.5
 Tested up to: 4.7.3
 Author: leehodson

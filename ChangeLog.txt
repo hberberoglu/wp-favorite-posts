@@ -1,6 +1,6 @@
 See http://github.com/vr51/wp-favorite-posts/readme.txt for changelog, or view the GitHub update history.
 
-Current Version: 2.1.1
+Current Version: 2.1.2
 
 # Forked Here Since Version 1.7.1
 
