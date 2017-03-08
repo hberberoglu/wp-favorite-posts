@@ -77,6 +77,8 @@ Please submit pull requests for the original code to https://github.com/hberbero
 4. Label Settings
 5. Advanced Settings
 6. Help and Debug Information
+7. Dashboard widget options (fave stats)
+8. Dashboard widget stats view
 
 == Changelog ==
 
@@ -92,7 +94,12 @@ Thumbnail image montage (if thumb used)
 	Insert file name as feature image for favourite's page (requires ability to select page used for favourites).
 	Make feature image (PHP). Store image in Feature Montage Gallery
 
-= 2.1.1 (2017-03-04) =
+= 2.1.3 (2017-03-04) =
+	
+* Fix: Fix title when option has html tags. Thanks to @avioli
+* Added: Screenshots of the dashboard widget and options
+	
+= 2.1.2 (2017-03-04) =
 
 * Enhancement: Improved dashboard widget's appearance
 	
