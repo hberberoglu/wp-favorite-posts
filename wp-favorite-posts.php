@@ -193,8 +193,9 @@ function wpfp_link( $return = 0, $action = "", $show_span = 1, $args = array() )
     if ($return) { return $str; } else { echo $str; }
 }
 
-function wpfp_link_html($post_id, $opt, $action) {
-    $link = "<a class='wpfp-link' href='?wpfpaction=".$action."&amp;postid=". esc_attr($post_id) . "' title='". $opt ."' rel='nofollow'>". $opt ."</a>";
+function wpfp_link_html($post_id, $opt, $action, $title = null) {
+    $title = $title === null ? trim(esc_attr(wp_strip_all_tags($opt, true))) : $title;
+    $link = "<a class='wpfp-link' href='?wpfpaction=".$action."&amp;postid=". esc_attr($post_id) . "' title='". $title ."' rel='nofollow'>". $opt ."</a>";
     $link = apply_filters( 'wpfp_link_html', $link );
     return $link;
 }
