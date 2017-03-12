@@ -19,17 +19,24 @@ Please submit pull requests against versions 2.x and above to [master branch](ht
 # Features
 
 - Visitors can create a list of favorite posts
-- Logged in visitors favorite posts are stored
-- Shortcode to display visitor's favorites in a page
-- Shortcode to display all favorite posts in a page
-- Widget to display favorite posts
+- Logged in visitor's favorite posts are stored for the visitor to see again later
+- Anonymous visitor's favorite posts are stored as a session cookie
+- Shortcode to display visitor's favorites in a page: [wp-favorite-posts]
+- Shortcode to display all favorite posts in a page: [wpfp-most number='5']
+- Widget to display favorite posts in sidebars: "Most Favorited Posts"
 - Dashboard widget to display stats
-- Display text link with or without thumbnail
+- Site admin can reset all stats
+- Visitors can clear their own list with a single click
+- Display favorite post text links with or without thumbnail
 - Position thumbnail relative to text link
 - Set thumbnail image size (independently for dashboard widget, shortcode list(s) and sidebar widget)
 - Easily configured language text for buttons and other items of display
 - Translateable
 - Each list display route uses its own configurable template.
+
+See [readme.txt](readme.txt) for more details.
+
+See [Changelog.txt](changelog.txt) for change history.
 
 # Screenshots
 
