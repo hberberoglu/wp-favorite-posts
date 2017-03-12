@@ -6,7 +6,7 @@ This is the forked version.
 
 WP Favorite Posts is a WordPress plugin to enable site visitors to add posts to a favorite list.
 
-This version (versions 2 and above): [https://github.com/vr51/wp-favorite-posts/]( http://github.com/vr51/wp-favorite-posts/)
+This version (versions 1.7.1 and above): [https://github.com/vr51/wp-favorite-posts/]( http://github.com/vr51/wp-favorite-posts/)
 
 Original version (versions at 1.x and below): [https://wordpress.org/plugins/wp-favorite-posts](http://wordpress.org/plugins/wp-favorite-posts)
 
