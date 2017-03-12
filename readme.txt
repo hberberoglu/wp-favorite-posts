@@ -13,13 +13,23 @@ Let users add posts to their personal favorite list. Registered users can keep l
 
 Let users add posts to their personal favorite list. Registered users can keep lists permanently. Unregistered users can keep lists for their session lifetime. Display the 'favorite' buttons automatically above or below posts, or add the buttons manually. Show the favorites list in a page that includes the shortcode <code>[wp-favorite-posts]</code> or display favorites in a sidebar widget. View total post favorite stats in admin dashboard.
 
-- If a user is logged in their favorites will be saved to the WordPress database in their user profile.
-- If user is not logged in their data will saved to their active session cookie.
-- Statistical data for each post is stored in the post meta.
-- Select whether favorite lists can be saved by registered users only.
-- Display a users favorite list in a 'favorites' page using shortcode [wp-favorite-posts].
-- Use the "Most Favorited Posts" widget to display favorite lists in a sidebar.
-- Create your own display template to customize the display of the shortcode or any of the widgets if you desire.
+# Features
+
+- Visitors can create a list of favorite posts
+- Logged in visitor's favorite posts are stored for the visitor to see again later
+- Anonymous visitor's favorite posts are stored as a session cookie
+- Shortcode to display visitor's favorites in a page: [wp-favorite-posts]
+- Shortcode to display all favorite posts in a page: [wpfp-most number='5']
+- Widget to display favorite posts in sidebars: "Most Favorited Posts"
+- Dashboard widget to display stats
+- Site admin can reset all stats
+- Visitors can clear their own list with a single click
+- Display favorite post text links with or without thumbnail
+- Position thumbnail relative to text link
+- Set thumbnail image size (independently for dashboard widget, shortcode list(s) and sidebar widget)
+- Easily configured language text for buttons and other items of display
+- Translateable
+- Each list display route uses its own configurable template.
 
 <h2>How to Display a Users Most Favorite Post List</h2>
 
@@ -50,18 +60,15 @@ Place custom display templates into your theme or child theme's root directory. 
 
 <h2>History of This Version</h2>
 
-This is a fork of the original code.
+This is a fork of the original WP Favorite Posts plugin. Versions 1.7.1 and up belong to this fork.
 
-Code and plugin package for this fork is found at http://github.com/vr51/wp-favorite-posts/.
+Code and plugin package for this fork is found [here](http://github.com/vr51/wp-favorite-posts/).
 
-The original WP Favorite Posts is found at http://wordpress.org/extend/plugins/wp-favorite-posts/changelog/.
+The original WP Favorite Posts is found [here](http://wordpress.org/extend/plugins/wp-favorite-posts/changelog/).
 
 This fork is maintained by Lee Hodson @vr51.
 
-Please submit pull requests for this fork to https://github.com/vr51/wp-favorite-posts
-
-Please submit pull requests for the original code to https://github.com/hberberoglu/wp-favorite-posts
-
+Please submit GitHub pull requests for this version to https://github.com/vr51/wp-favorite-posts
 
 == Installation ==
 
@@ -71,6 +78,7 @@ Please submit pull requests for the original code to https://github.com/hberbero
 1. Visit Settings > WP Favorite Posts to read help information.
 
 == Screenshots ==
+
 1. General Settings
 2. Display Settings
 3. Thumbnail Settings
@@ -83,10 +91,6 @@ Please submit pull requests for the original code to https://github.com/hberbero
 == Changelog ==
 
 = Coming up...
-
-Import old plugin settings from prior to 1.7.1, if exist (automatic) and new not already set.
-
-Stats admin dashboard widget.
 
 Thumbnail image montage (if thumb used)
 
