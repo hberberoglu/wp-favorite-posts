@@ -15,5 +15,3 @@ Original version (versions at 1.x and below): [https://wordpress.org/plugins/wp-
 * **Contributing**: Contributions are more than welcome.
 
 Please submit pull requests against versions 2.x and above to [master branch](https://github.com/vr51/wp-favorite-posts).
-
-Please submit pull requests against the original 1.x and below versions to [master branch](https://github.com/hberberoglu/wp-favorite-posts). Thanks!
