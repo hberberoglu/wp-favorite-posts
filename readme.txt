@@ -51,7 +51,7 @@ text into content section. This page will contain users favorite posts.
 3. Advanced Settings
 
 == Changelog ==
-= 1.6.6 (2016-03-16) =
+= 1.6.7 (2020-09-03) =
 * Tested with 5.5.1 and fixed compatibility issues. 
 
 = 1.6.6 (2016-03-16) =
