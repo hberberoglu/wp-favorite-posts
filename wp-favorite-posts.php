@@ -27,6 +27,7 @@ Author URI: https://github.com/hberberoglu
 
 */
 
+define('WPFP_VERSION', 1.6.6);
 define('WPFP_PATH', plugins_url() . '/wp-favorite-posts');
 define('WPFP_META_KEY', "wpfp_favorites");
 define('WPFP_USER_OPTION_KEY', "wpfp_useroptions");
@@ -320,7 +321,7 @@ add_shortcode('wp-favorite-posts', 'wpfp_shortcode_func');
 
 function wpfp_add_js_script() {
 	if (!wpfp_get_option('dont_load_js_file'))
-		wp_enqueue_script( "wp-favorite-posts", WPFP_PATH . "/wpfp.js", array( 'jquery' ) );
+		wp_enqueue_script( "wp-favorite-posts", WPFP_PATH . "/wpfp.js", array( 'jquery' ), WPFP_VERSION );
 }
 add_action('wp_print_scripts', 'wpfp_add_js_script');
 
