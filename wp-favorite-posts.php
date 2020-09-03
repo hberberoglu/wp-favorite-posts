@@ -27,7 +27,7 @@ Author URI: https://github.com/hberberoglu
 
 */
 
-define('WPFP_VERSION', 1.6.6);
+define('WPFP_VERSION', '1.6.6');
 define('WPFP_PATH', plugins_url() . '/wp-favorite-posts');
 define('WPFP_META_KEY', "wpfp_favorites");
 define('WPFP_USER_OPTION_KEY', "wpfp_useroptions");
