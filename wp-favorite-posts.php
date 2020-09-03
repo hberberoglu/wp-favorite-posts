@@ -321,7 +321,7 @@ add_shortcode('wp-favorite-posts', 'wpfp_shortcode_func');
 
 function wpfp_add_js_script() {
 	if (!wpfp_get_option('dont_load_js_file'))
-		wp_enqueue_script( "wp-favorite-posts", WPFP_PATH . "/wpfp.js", array( 'jquery' ), WPFP_VERSION );
+		wp_enqueue_script( "wp-favorite-posts", WPFP_PATH . "/script.js", array( 'jquery' ), WPFP_VERSION );
 }
 add_action('wp_print_scripts', 'wpfp_add_js_script');
 
