@@ -4,8 +4,8 @@ Donate link: https://www.paypal.me/hberberoglu
 Tags: favorite posts, favorite, favourite, posts, favorites,
 wp-favorite-posts, reading list, post list, post lists, lists
 Requires at least: 3.5
-Tested up to: 4.4.2
-Stable tag: 1.6.7
+Tested up to: 5.5.1
+Stable tag: 1.6.8
 
 Allows visitors to add favorite posts. This plugin use cookies for saving data so
 unregistered users can favorite a post.
@@ -51,6 +51,9 @@ text into content section. This page will contain users favorite posts.
 3. Advanced Settings
 
 == Changelog ==
+= 1.6.8 (2020-09-04) =
+* Updated tested up to info. Tested with 5.5.1.
+
 = 1.6.7 (2020-09-03) =
 * Tested with 5.5.1 and fixed compatibility issues. 
 
