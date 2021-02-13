@@ -60,6 +60,8 @@ function wp_favorite_posts() {
         } else if ($_REQUEST['wpfpaction'] == 'clear') {
             if (wpfp_clear_favorites()) wpfp_die_or_go(wpfp_get_option('cleared'));
             else wpfp_die_or_go("ERROR");
+        } else if ($_REQUEST['wpfpaction'] == 'user-favorite-list') {
+            wpfp_user_favorite_list();
         }
     endif;
 }
@@ -469,4 +471,22 @@ function wpfp_cookie_warning() {
 function wpfp_get_option($opt) {
     $wpfp_options = wpfp_get_options();
     return htmlspecialchars_decode( stripslashes ( $wpfp_options[$opt] ) );
+}
+
+// User favorite list loaded using ajax to prevent cache issue
+function wpfp_user_favorite_list() {
+    $options = wpfp_get_options();
+    $limit = 5;
+    if (isset($options['uf_widget_limit'])) {
+        $limit = $options['uf_widget_limit'];
+    }
+    
+    $favorite_post_ids = wpfp_get_users_favorites();
+
+    if (@file_exists(TEMPLATEPATH.'/wpfp-your-favs-widget.php')):
+        include(TEMPLATEPATH.'/wpfp-your-favs-widget.php');
+    else:
+        include("wpfp-your-favs-widget.php");
+    endif;
+    die();
 }

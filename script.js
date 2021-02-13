@@ -28,3 +28,18 @@ function wpfp_do_js( dhis, doAjax ) {
         );
     }
 }
+
+function wpfp_after_ajax(dthis) {
+    wpfp_user_favorite_list();
+}
+
+function wpfp_user_favorite_list() {
+    var mylist = jQuery(".user-favorite-list");
+    url = document.location.href.split('#')[0];
+    params = 'wpfpaction=user-favorite-list&ajax=1';
+    
+    jQuery.get(url, params, function(data) {
+            mylist.html(data);
+        }
+    );
+}
