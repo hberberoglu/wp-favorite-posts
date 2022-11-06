@@ -149,7 +149,11 @@ function wpfp_check_favorited($cid) {
 function wpfp_link( $return = 0, $action = "", $show_span = 1, $args = array() ) {
     global $post;
     //print_r($post);
-    $post_id = &$post->ID;
+
+    if (!is_null($post)) {
+        $post_id = &$post->ID;
+    }
+	
     extract($args);
     $str = "";
     if ($show_span)
